@@ -1,6 +1,6 @@
 ---
 name: Wine Country Exposure
-overview: Build winecountryexposure.com as a Next.js 15 site on Vercel with a custom Open-Homes-style quote builder that hands off to Aryeo Pro for scheduling, payment, and media delivery, plus an MDX blog and local-SEO service-area pages.
+overview: Build winecountryexposure.com as a Next.js 16 site on Vercel with a custom Open-Homes-style quote builder that hands off to Aryeo Pro for scheduling, payment, and media delivery, plus an MDX blog and local-SEO service-area pages.
 todos:
   - id: aryeo-verify
     content: Book Aryeo demo and get written confirmation that Pro Tier 1 ($49/mo) includes API key access, POST /order-form-sessions, GET /products, and webhook registration. Hard gate before Phase 3.
@@ -12,8 +12,8 @@ todos:
     content: Add winecountryexposure.com and www to Vercel, then enter the exact A/CNAME records Vercel displays into GoDaddy DNS. Keep GoDaddy as registrar and set www as canonical.
     status: pending
   - id: scaffold
-    content: Scaffold Next.js 15 App Router + React 19 + TypeScript + Tailwind v4 + motion. Set up layout, fonts, color tokens, NEXT_PUBLIC_SITE_URL, sitemap/robots via Next metadata, and deploy a coming-soon page.
-    status: pending
+    content: Scaffold Next.js 16 App Router + React 19 + TypeScript + Tailwind v4 + motion. Set up layout, fonts, color tokens, NEXT_PUBLIC_SITE_URL, sitemap/robots via Next metadata, and deploy a coming-soon page.
+    status: in_progress
   - id: brand
     content: "Establish the visual identity: logo, palette, type scale, and reusable UI primitives (buttons, cards, modals, section shells) in a components/ui directory."
     status: pending
@@ -54,7 +54,7 @@ isProject: false
 
 ## Overview
 
-A Next.js 15 marketing site + custom multi-step quote builder that pre-fills and hands off to Aryeo Pro. Aryeo owns scheduling, invoicing, payment (through your own Stripe), and media delivery, so you never build a gallery system, calendar, or invoice engine. Your site owns brand, SEO, blog, and the ordering experience.
+A Next.js 16 marketing site + custom multi-step quote builder that pre-fills and hands off to Aryeo Pro. Aryeo owns scheduling, invoicing, payment (through your own Stripe), and media delivery, so you never build a gallery system, calendar, or invoice engine. Your site owns brand, SEO, blog, and the ordering experience.
 
 ## Architecture
 
@@ -86,13 +86,36 @@ Fallback if API is Enterprise-gated: keep the custom builder as a **lead-gen est
 
 ## Tech stack
 
-- **Next.js 15 App Router** + React 19 + TypeScript
+- **Next.js 16 App Router** + React 19 + TypeScript (16.3.8 is what `create-next-app` installs; Next 16, not 15, is current)
 - **Tailwind CSS v4** (same as Wine Country Harvest, so utility muscle memory carries over)
 - **Framer Motion** (`motion`) for scroll/hero animation — already in your WCH deps
 - **MDX blog**: `content/blog/*.mdx` read with `gray-matter` + `next-mdx-remote/rsc`. Avoid Contentlayer (unmaintained).
 - **next/image** for the photo-heavy portfolio — the single biggest reason to move off the Vite SPA setup, which needed custom `scripts/prerender-pages.ts` and `scripts/validate-seo.ts` to get SEO working
 - **Google Places Autocomplete (New)** for the address step, matching Open Homes. Needs a Google Cloud project with billing; restrict the key by HTTP referrer.
 - **Route handlers** in `app/api/*` replace the `/api/*.ts` Vercel functions you use today
+
+## Next 16 conventions that differ from Next 15
+
+The scaffold ships an `AGENTS.md` warning that Next 16 has breaking changes, with version-matched docs
+bundled at `node_modules/next/dist/docs/`. The ones that affect this build:
+
+- **Turbopack is the default** for both `next dev` and `next build`. No flags needed.
+- **Async request APIs are mandatory.** `params`, `searchParams`, `cookies()`, and `headers()` must be
+  awaited; the Next 15 synchronous compatibility period is over. Run `npx next typegen` to get the
+  `PageProps<'/route'>`, `LayoutProps`, and `RouteContext` type helpers.
+- **`middleware.ts` is now `proxy.ts`** with a `proxy` named export, and it only runs on the Node
+  runtime. Relevant if we add www-canonical redirects rather than handling them in Vercel.
+- **`next lint` is removed.** The scaffold's `lint` script calls `eslint` directly, and `next build`
+  no longer lints, so linting has to be wired into CI explicitly if we want it enforced.
+- **`next/image` defaults tightened**, and this matters most for a photography site: `images.qualities`
+  now allows only `[75]`, so portfolio images needing higher fidelity require opting in explicitly.
+  `minimumCacheTTL` defaults to 4 hours, `16` is gone from `imageSizes`, and `images.domains` is
+  deprecated in favor of `remotePatterns`.
+- **`revalidateTag` requires a second `cacheLife` argument.** Use `updateTag` in server actions when
+  you need read-your-writes instead of stale-while-revalidate.
+- **Smooth scrolling needs `data-scroll-behavior="smooth"`** on `<html>`; Next no longer overrides
+  `scroll-behavior` during navigation on its own.
+- `sitemap` and OG-image generator functions now receive `id` and `params` as promises.
 
 ## Services and accounts needed
 
