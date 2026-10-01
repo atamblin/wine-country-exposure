@@ -321,10 +321,35 @@ that they should carry a travel fee rather than being refused outright.
 
 ### 2. Travel Fees
 
-Free inside the core three counties, drive-time or distance based beyond. F8 sets
-`travel_fee_display_type: none`, which hides the fee inside the form and settles it on the invoice.
-Showing it is the more honest choice and avoids a surprise; worth deciding deliberately rather than
-copying them.
+The Create Fee screen offers five types: Flat, Percentage Based, Basic Metered (per mile),
+Graduated Metered (tiers summed across the distance), and Volume Metered (only the tier matching the
+distance applies).
+
+**Use Volume Metered.** Travel fees are distance-based, not county-based, so "free in Sonoma, Napa
+and Marin" is not directly expressible — distance rings are the practical proxy. Volume Metered
+gives a single predictable number per trip, which is easy to quote and easy for an agent to accept.
+Basic Metered (straight per-mile) produces odd figures like $37.40 and invites argument. Graduated
+sums every tier, which is fairer in theory and incomprehensible in practice.
+
+Suggested rings, assuming a Santa Rosa base — **confirm what address Aryeo measures from before
+trusting these**, and sanity-check each against a real drive:
+
+| Distance from base | Fee | Covers roughly |
+| --- | --- | --- |
+| 0–40 miles | $0 | Sonoma County, most of Napa and Marin |
+| 41–60 miles | $45 | Outer Napa, San Rafael, Fairfield |
+| 61–85 miles | $85 | Ukiah, Lakeport, Vallejo |
+| 86–150 miles | $150 | Mendocino coast, far Lake County |
+
+The first ring has to be generous enough that the core market stays free — Santa Rosa to Napa is
+about 35 miles, so a 30-mile first ring would start billing inside our own back yard.
+
+Note the warning on that screen: the fee applies **per team member servicing the appointment**.
+Harmless with one photographer, but it doubles the moment a second person is assigned to a shoot.
+
+F8 sets `travel_fee_display_type: none`, which hides the fee inside the form and settles it on the
+invoice. Showing it is the more honest choice and avoids a surprise on a referral-driven market;
+worth deciding deliberately rather than copying them.
 
 ### 3. Stripe
 
