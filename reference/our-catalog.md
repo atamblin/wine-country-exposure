@@ -428,21 +428,35 @@ so they change the delivery cost and time per order on products already priced.
 Also needed before the form can offer timeslots: **availability / booking hours**, which is its own
 earlier onboarding step.
 
-### Order form settings we want
+### Order form — created
 
-Field names below are from the API; dashboard labels will differ.
+Title `Book a Shoot`, type `ARYEO`, id `01a0f9c0-da29-72a0-8a32-f4e56ae747a0` (saved to
+`ARYEO_ORDER_FORM_ID` in `.env.local`).
 
-| Setting | Value | Why |
-| --- | --- | --- |
-| `require_upfront_payment` | true | No chasing invoices |
-| `upfront_payment_percentage` | 100 | Same as F8 |
-| `use_territory_awareness` | true | Only offer what we can actually service |
-| `max_main_product_quantity` | 1 | One bundle per order; the $0 product is the escape hatch |
-| `availability_style` | `TIME` or `TIME_OF_DAY` | `TIME_OF_DAY` (morning/afternoon) is more forgiving for a solo operator than committing to exact times |
-| `slot_interval_minutes` | 60 | |
-| `use_instant_appointment_scheduling` | false initially | Confirm each booking by hand until the calendar is trustworthy |
-| `use_automated_user_assignment` | false | Irrelevant with one photographer |
-| `is_public` | true | |
+Unlike most of the dashboard, order form settings **are** readable from the API, so
+`GET /order-forms` is the way to verify these rather than screenshots.
+
+| Setting | Default on creation | Target | Why |
+| --- | --- | --- | --- |
+| `require_upfront_payment` | false | **true** | No chasing invoices |
+| `upfront_payment_percentage` | null | **100** | Same as F8 |
+| `use_territory_awareness` | false | **true** | Only offer what we can actually service |
+| `availability_style` | `DATETIME_PICKER` | **`TIME_OF_DAY`** | Morning/afternoon windows leave room for drive time and overruns; exact start times do not |
+| `is_public` | false | **true** when ready to launch | |
+| `show_user_names` | true | **false** | Keeps the brand in front rather than advertising a one-person shop |
+| `slot_interval_minutes` | 30 | 30 — leave | Finer granularity means better calendar utilisation |
+| `use_automated_user_assignment` | true | true — leave | With one photographer this just auto-assigns orders to us |
+| `use_instant_appointment_scheduling` | false | false — leave | Confirm each booking by hand until the calendar is trustworthy |
+
+`max_main_product_quantity` is not returned by `GET /order-forms`, so set it in the dashboard and
+verify by behaviour.
+
+### White-label domain
+
+Aryeo issued the form at **`https://media.winecountryexposure.com/order-forms/{id}`** and an order
+page at `https://media.winecountryexposure.com/order`. That subdomain needs a **CNAME in GoDaddy
+pointing `media` at Aryeo** before either URL resolves. Do this alongside the Vercel DNS records for
+the apex and `www`, so all three are set in one pass.
 
 Then add the four categories via **Add Categories** on the form's settings page, and capture the
 form's ID into `ARYEO_ORDER_FORM_ID` in `.env.local` — `npm run aryeo:check` will print it.
