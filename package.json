@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "aryeo:check": "node --env-file=.env.local scripts/aryeo-check.mjs"
   },
   "dependencies": {
     "next": "16.3.8",
