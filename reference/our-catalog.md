@@ -314,19 +314,27 @@ the order form depends on.
 `/territories` currently returns 0. Territory awareness filters which products and which
 photographers are offered based on the property address, and travel fees key off it.
 
-Aryeo's region reference data gives these county IDs (from `GET /regions?filter[type]=COUNTY`):
+**Territories are hand-drawn polygons on a Mapbox map, not counties picked from a list.** The county
+region IDs from `GET /regions` are not used here — they belong to some other part of the platform.
+Drawing exact county boundaries by hand is not worth it; coarse polygons are fine, because all
+territory awareness needs to answer is "do we serve this address?"
 
-| County | Region ID |
-| --- | --- |
-| Sonoma | `b299f2db-7b5c-4f8a-a3de-18bb37dd0696` |
-| Napa | `d1e45eb6-f0ff-411f-b5d9-3a5b17a175d2` |
-| Marin | `ae2c91bb-f4ad-422c-ad83-00080e768211` |
-| Solano | `8c3735ca-67e0-4922-bac5-8254f43adc3f` |
-| Lake | `2d49c4a5-d037-4b9d-98df-609e16b6994b` |
-| Mendocino | `c153173c-7134-4537-b5f3-7863354fab6d` |
+Two territories, matching the travel-fee split:
 
-Sonoma, Napa and Marin are the core market. Solano, Lake and Mendocino are reachable but far enough
-that they should carry a travel fee rather than being refused outright.
+| Name | Covers | Fee |
+| --- | --- | --- |
+| `North Bay Core` | Sonoma, Napa, Marin | 0 |
+| `North Bay Extended` | Solano, Lake, Mendocino | 0 |
+
+Fields on the create screen: Territory Name, Territory Color, Territory Users (assign yourself),
+**Territory Fee Amount**, and **Fee Name Override** (blank shows as "Travel Fee" on the order).
+
+**Territory Fee Amount is additive** — the screen says it "will be added to all orders placed within
+this territory." So it stacks with the metered travel fee. Keep both at **0** and let the mileage
+rings do the work; otherwise far-away jobs get billed twice.
+
+Where territories overlap, Aryeo applies only the **lowest** fee. With both at 0 that is moot, but it
+means sloppy overlap is forgiving rather than punishing.
 
 ### 2. Travel Fees
 
