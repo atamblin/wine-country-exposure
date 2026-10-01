@@ -388,11 +388,42 @@ F8 sets `travel_fee_display_type: none`, which hides the fee inside the form and
 invoice. Showing it is the more honest choice and avoids a surprise on a referral-driven market;
 worth deciding deliberately rather than copying them.
 
-### 3. Stripe
+### 3. Stripe — done
 
-`require_upfront_payment` with `upfront_payment_percentage: 100` cannot work without a connected
-payment processor. Aryeo supports Stripe or Square via Connect, so funds land in our own account.
-Connect this before building the form, since verification is not instant.
+Connected via the App Store (Stripe, not Square). Configured under **Settings → Orders & Payments**,
+which the API does not expose, so none of this is auditable by script.
+
+| Setting | Value |
+| --- | --- |
+| Enable Payments | on |
+| Hide Pricing | off |
+| Default Payment Gateway | Stripe |
+| Currency | USD |
+| Accept Customer Payments via Aryeo | on |
+| Allow Payments Before Orders Are Fulfilled | on — required for upfront payment |
+| Enable tip collection | **off** — a tip prompt on a brokerage invoice undercuts positioning |
+| Allow customers to cancel orders | on |
+| Cancellation period | **24 hours** — a solo calendar cannot refill a slot cancelled overnight |
+| Issue automatic refund on cancellation | off — keep the decision manual |
+
+Stripe takes 2.9% + 30¢: about $18.43 on a $625 Grand Reserve, $5.95 on a $195 Estate.
+
+**Invoice Notes** (travels with every invoice):
+
+> Payment is due in full at booking. Images and video are licensed to the listing agent and their
+> brokerage for marketing of this property only; the license does not transfer to buyers, sellers,
+> builders, or third parties. Appointments cancelled or rescheduled within 24 hours of the scheduled
+> start are subject to a $75 fee. Matterport tours include one year of hosting; renewal is $25 per
+> year. Wine Country Exposure retains copyright to all work produced.
+
+The licensing sentence is the load-bearing one — reuse of listing photos by builders or buyers'
+agents is the usual dispute, and putting the limit on every invoice is what makes it enforceable.
+
+### Integrations worth evaluating before the first paid order
+
+The App Store carries **CubiCasa** (floor plans from a phone capture), **Virtual Staging AI**, and
+**AutoHDR**. These map directly onto Floor Plan ($125–225) and Virtual Staging ($50 per 5 images),
+so they change the delivery cost and time per order on products already priced.
 
 Also needed before the form can offer timeslots: **availability / booking hours**, which is its own
 earlier onboarding step.
