@@ -197,9 +197,12 @@ Descriptions:
 - **Virtual Twilight — Per Image** — A daytime exterior photograph converted to a dusk scene. Priced
   per image.
 
-Note: Twilight Photography needs its own appointment because it is sunset-locked. Aryeo will try to
-schedule it inside the main booking window. Flag this in the description and plan to confirm timing
-manually until we know how their scheduler handles it.
+**Twilight Photography must be flagged as a twilight product.** Products carry an `is_twilight`
+field, and Aryeo's scheduler has native twilight support (listed under Scheduling alongside Business
+Hours and Home Base) that books these relative to local sunset instead of inside normal business
+hours. Ours is currently `is_twilight=false`, so it would be offered at any time of day.
+
+Virtual Twilight stays `false` — it is a photo edit, not a shoot.
 
 ## Add-ons — square-footage tiered
 
@@ -301,6 +304,12 @@ click path to follow — expect to work from the in-app onboarding checklist.
 Three things must exist before the order form works, in this order:
 
 ### 1. Territories (service area)
+
+**Territories live under Scheduling, not Products.** That section also holds Business Hours, Home
+Base, Twilight, Calendar Sync, Booking Limits, Buffers and Assignment Priority — several of which
+the order form depends on.
+
+**Home Base is the address travel fees measure from.** Set it before trusting the mileage rings.
 
 `/territories` currently returns 0. Territory awareness filters which products and which
 photographers are offered based on the property address, and travel fees key off it.
