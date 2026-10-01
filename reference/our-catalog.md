@@ -347,13 +347,16 @@ distance applies).
 figures like $37.40 and invites argument. Graduated sums every tier, which is fairer in theory and
 incomprehensible in practice.
 
-**Miles are the wrong unit for west Sonoma County.** Check whether the "Metered by" dropdown offers
-travel *time* — the Products Overview page describes travel fees as "distance/time-based," so it
-likely does. Jenner is about 33 miles from Santa Rosa but close to 50 minutes on Highway 116 and the
-coast road; Bodega Bay is roughly 27 miles and 45 minutes. Mileage underprices exactly the jobs that
-cost the most time.
+**Metered by is set to "Minutes of travel to an appointment", Fee Structure to "Flat Fee".** Miles
+are the wrong unit for west Sonoma County: Jenner is about 33 miles from Santa Rosa but close to 50
+minutes on Highway 116 and the coast road, and Bodega Bay is roughly 27 miles and 45 minutes.
+Mileage underprices exactly the jobs that cost the most time. Both fields stayed editable after
+creation, so this did not require rebuilding the fee.
 
-Rings by **travel time**, preferred:
+The Fee Address Override panel confirms **each team member's home base is the origin** for the
+distance or time calculation. Override left off.
+
+Rings by **travel time**, as configured:
 
 | First unit | Last unit | Fee | Covers roughly |
 | --- | --- | --- | --- |
@@ -362,14 +365,8 @@ Rings by **travel time**, preferred:
 | 46 | 70 min | $95 | Bodega Bay, Jenner, the coast road |
 | 71 | ∞ | $175 | Outside the service area — priced to discourage |
 
-Rings by **mileage**, if time is not an option:
-
-| First unit | Last unit | Fee | Covers roughly |
-| --- | --- | --- | --- |
-| 0 | 20 | $0 | The six core towns |
-| 21 | 30 | $50 | Occidental, Bodega Bay approaches |
-| 31 | 45 | $95 | Jenner, the coast |
-| 46 | ∞ | $175 | Outside the service area |
+Fee name: `Travel Fee`. Description: "Applied to appointments outside our core service area, based on
+driving time from our base. Appointments within 30 minutes have no travel fee."
 
 The original rings (0–25 free, then $45/$85/$160/$300 out to 150+ miles) were built for a
 six-county footprint and are wrong for this one: every town we serve except Bodega Bay and Jenner
