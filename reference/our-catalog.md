@@ -451,12 +451,45 @@ Unlike most of the dashboard, order form settings **are** readable from the API,
 `max_main_product_quantity` is not returned by `GET /order-forms`, so set it in the dashboard and
 verify by behaviour.
 
-### White-label domain
+### White-label domain — already live
 
-Aryeo issued the form at **`https://media.winecountryexposure.com/order-forms/{id}`** and an order
-page at `https://media.winecountryexposure.com/order`. That subdomain needs a **CNAME in GoDaddy
-pointing `media` at Aryeo** before either URL resolves. Do this alongside the Vercel DNS records for
-the apex and `www`, so all three are set in one pass.
+`media.winecountryexposure.com` is already CNAMEd to `domains.aryeo.com` →
+`custom-domains.aryeo.com` → `caddy-cluster.aryeo.com` → AWS Global Accelerator, which is the exact
+chain F8's `f8.f8re.com` uses. Let's Encrypt cert issued and valid. Both
+`/order-forms/{id}` and `/order` return HTTP 200. No DNS work needed.
+
+**`is_public: false` does not make the form private.** The URL serves the full address step to anyone
+who has it. Public appears to control whether the form is *listed* on the `/order` landing page, not
+whether it is reachable. Low risk while products are unpublished (the form has nothing to sell), but
+do not treat it as a staging gate.
+
+### Settings only visible through the rendered form
+
+`GET /order-forms` returns a subset. The order form page's Inertia payload exposes more:
+
+| Setting | Value | Note |
+| --- | --- | --- |
+| `max_main_product_quantity` | 1 | Correct by default — no action needed |
+| `travel_fee_display_type` | `amount` | Shows the fee in-form, unlike F8's `none`. What we wanted |
+| `custom_fields` | null | See below |
+| `google_analytics_id` / `facebook_pixel_id` / `google_tag_manager_id` | empty | Settable per form — needed to track the website → order form funnel |
+| `is_twilight_visible`, `use_automated_confirmation`, `require_early_login`, `always_show_contact_step`, `show_category_icons` | defaults | Worth a pass once the form is otherwise working |
+
+### Custom fields to add
+
+`custom_fields` is null. F8 collects Access Instructions (select), Combo Code, Gate Code,
+"Photograph the inside of the Garage?" and Appointment Notes. Gate and combo codes matter more here
+than in a city market — a locked gate at the end of a long driveway in Dry Creek or Occidental is a
+wasted trip, and the whole point of upfront payment is not having to re-shoot for free.
+
+### Product filter — missing
+
+`order_form_product_filter_applications` is empty and `order_form_product_filter_entries` is `[]`,
+so **no square-footage filter is attached to this form.** Without it Aryeo never learns the property
+size, so none of the 69 tiered variants can resolve. This is the one remaining structural blocker.
+
+Create the `Square Footage` filter (Products Overview → Product Filters, type Number) if it does not
+exist, then attach it to the order form.
 
 Then add the four categories via **Add Categories** on the form's settings page, and capture the
 form's ID into `ARYEO_ORDER_FORM_ID` in `.env.local` — `npm run aryeo:check` will print it.
