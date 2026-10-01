@@ -284,8 +284,13 @@ high-margin work in front of an agent before the $25 extras.
 
 The six bundles don't need a category — the order form presents main products as its own step.
 
+**Categories live on the order form, not in the Products area.** Aryeo calls the feature "Order Form
+Categories" and it is reached from an **"Add Categories" button on an order form's settings page**.
+So the order form has to exist first; there is nothing to find under Products Overview. Categories
+also carry a `color`, so expect to pick one per category.
+
 `/product-categories` is read-only in the Aryeo API (no POST), so these have to be created in the
-dashboard, same as the products. `npm run aryeo:audit` will confirm the assignments afterward.
+dashboard. `npm run aryeo:audit` will confirm the assignments afterward.
 
 ## After the catalog is in
 
