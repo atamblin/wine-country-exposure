@@ -266,6 +266,27 @@ copy that table verbatim.
 Description: An interactive Zillow 3D Home tour with an interactive floor plan, published directly
 to the listing and required for Zillow Showcase eligibility.
 
+## Categories
+
+Without categories the add-on step is one undifferentiated list of 15 items. These four group it
+into scannable sections. Counts: Photography 2, Video 6, 3D Tours & Floor Plans 3, Listing
+Marketing 4 — all 15 add-ons placed, none in two categories.
+
+| Category | Products |
+| --- | --- |
+| Photography | Aerial Photography, Twilight Photography |
+| Video | Signature Listing Film, Agent Walkthrough Video, Aerial Video Tour, Vertical Social Video, Cinematic Photo Film, Slideshow Video Tour |
+| 3D Tours & Floor Plans | Matterport 3D Tour, Zillow 3D Home Tour, Floor Plan |
+| Listing Marketing | Virtual Staging — 5 Images, Virtual Twilight — Per Image, Custom Property Domain, AI Listing Description |
+
+Order them as above if the dashboard lets you sort. It runs most-expensive to least, which puts the
+high-margin work in front of an agent before the $25 extras.
+
+The six bundles don't need a category — the order form presents main products as its own step.
+
+`/product-categories` is read-only in the Aryeo API (no POST), so these have to be created in the
+dashboard, same as the products. `npm run aryeo:audit` will confirm the assignments afterward.
+
 ## After the catalog is in
 
 Remaining setup, in the left nav of the same screen:
