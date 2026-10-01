@@ -53,8 +53,8 @@ const expected = {
   "Estate — Photography Package": { type: "MAIN", variants: tiered3(195, 60, 295, 90, 395, 120, "10,000") },
   "Reserve — Photo + Video Package": { type: "MAIN", variants: tiered3(255, 60, 355, 90, 455, 120, "10,000") },
   "Blank Canvas — Vacant Listing Package": { type: "MAIN", variants: tiered3(350, 90, 475, 120, 600, 150, "7,500") },
-  "Reserve 3D — Matterport Package": { type: "MAIN", variants: tiered3(450, 120, 700, 180, 1000, 240, "7,500") },
-  "Reserve Showcase — Zillow 3D Package": { type: "MAIN", variants: tiered3(450, 120, 700, 150, 1000, 210, "7,500") },
+  "Reserve 3D — Matterport Package": { type: "MAIN", variants: tiered3(450, 120, 700, 180, 1000, 200, "7,500") },
+  "Reserve Showcase — Zillow 3D Package": { type: "MAIN", variants: tiered3(450, 120, 700, 150, 1000, 200, "7,500") },
   "Grand Reserve — Complete Listing Package": { type: "MAIN", variants: tiered3(625, 150, 875, 210, 1175, 270, "7,500") },
   "Add-Ons Only — Skip to Add-On Menu": { type: "MAIN", variants: flat(0, 1) },
 

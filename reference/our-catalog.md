@@ -110,7 +110,7 @@ tour, and a Matterport-generated floor plan. Buyers tour the home before they ev
 | --- | --- | --- | --- |
 | Up to 3,000 Sq. Ft. | 0–3000 | 450.00 | 120 |
 | 3,001–5,000 Sq. Ft. | 3001–5000 | 700.00 | 180 |
-| 5,001–7,500 Sq. Ft. | 5001–7500 | 1000.00 | 240 |
+| 5,001–7,500 Sq. Ft. | 5001–7500 | 1000.00 | 200 |
 
 ### 5. Reserve Showcase — Zillow 3D Package
 
@@ -121,7 +121,7 @@ the listing eligible for Zillow Showcase placement.
 | --- | --- | --- | --- |
 | Up to 3,000 Sq. Ft. | 0–3000 | 450.00 | 120 |
 | 3,001–5,000 Sq. Ft. | 3001–5000 | 700.00 | 150 |
-| 5,001–7,500 Sq. Ft. | 5001–7500 | 1000.00 | 210 |
+| 5,001–7,500 Sq. Ft. | 5001–7500 | 1000.00 | 200 |
 
 ### 6. Grand Reserve — Complete Listing Package
 
