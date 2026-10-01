@@ -294,16 +294,66 @@ dashboard. `npm run aryeo:audit` will confirm the assignments afterward.
 
 ## After the catalog is in
 
-Remaining setup, in the left nav of the same screen:
+Aryeo's own onboarding runs products as step 5, **Product Adjustments as step 6**, and **Order Form
+Creation & Settings as step 7**. Their help articles for both are video-only, so there is no written
+click path to follow — expect to work from the in-app onboarding checklist.
 
-- **Travel Fees** — free inside our primary service area, drive-time based beyond it. Needs the
-  North Bay territories defined first.
-- **Taxes** — California treats most photography deliverables as taxable when tangible media
-  changes hands; digital-only delivery is generally not. Worth one conversation with a CPA before
-  turning this on.
-- **Coupons & Promo Codes** — hold off until launch, then consider a first-listing offer.
-- **Pricing Plans** — this is Aryeo's volume/agent-specific pricing. Useful later for high-volume
-  agents and teams; skip for now.
+Three things must exist before the order form works, in this order:
 
-Then build the order form itself, mirror F8's two settings worth copying (100% payment upfront,
-territory awareness on), and capture the form's ID into `ARYEO_ORDER_FORM_ID` in `.env.local`.
+### 1. Territories (service area)
+
+`/territories` currently returns 0. Territory awareness filters which products and which
+photographers are offered based on the property address, and travel fees key off it.
+
+Aryeo's region reference data gives these county IDs (from `GET /regions?filter[type]=COUNTY`):
+
+| County | Region ID |
+| --- | --- |
+| Sonoma | `b299f2db-7b5c-4f8a-a3de-18bb37dd0696` |
+| Napa | `d1e45eb6-f0ff-411f-b5d9-3a5b17a175d2` |
+| Marin | `ae2c91bb-f4ad-422c-ad83-00080e768211` |
+| Solano | `8c3735ca-67e0-4922-bac5-8254f43adc3f` |
+| Lake | `2d49c4a5-d037-4b9d-98df-609e16b6994b` |
+| Mendocino | `c153173c-7134-4537-b5f3-7863354fab6d` |
+
+Sonoma, Napa and Marin are the core market. Solano, Lake and Mendocino are reachable but far enough
+that they should carry a travel fee rather than being refused outright.
+
+### 2. Travel Fees
+
+Free inside the core three counties, drive-time or distance based beyond. F8 sets
+`travel_fee_display_type: none`, which hides the fee inside the form and settles it on the invoice.
+Showing it is the more honest choice and avoids a surprise; worth deciding deliberately rather than
+copying them.
+
+### 3. Stripe
+
+`require_upfront_payment` with `upfront_payment_percentage: 100` cannot work without a connected
+payment processor. Aryeo supports Stripe or Square via Connect, so funds land in our own account.
+Connect this before building the form, since verification is not instant.
+
+Also needed before the form can offer timeslots: **availability / booking hours**, which is its own
+earlier onboarding step.
+
+### Order form settings we want
+
+Field names below are from the API; dashboard labels will differ.
+
+| Setting | Value | Why |
+| --- | --- | --- |
+| `require_upfront_payment` | true | No chasing invoices |
+| `upfront_payment_percentage` | 100 | Same as F8 |
+| `use_territory_awareness` | true | Only offer what we can actually service |
+| `max_main_product_quantity` | 1 | One bundle per order; the $0 product is the escape hatch |
+| `availability_style` | `TIME` or `TIME_OF_DAY` | `TIME_OF_DAY` (morning/afternoon) is more forgiving for a solo operator than committing to exact times |
+| `slot_interval_minutes` | 60 | |
+| `use_instant_appointment_scheduling` | false initially | Confirm each booking by hand until the calendar is trustworthy |
+| `use_automated_user_assignment` | false | Irrelevant with one photographer |
+| `is_public` | true | |
+
+Then add the four categories via **Add Categories** on the form's settings page, and capture the
+form's ID into `ARYEO_ORDER_FORM_ID` in `.env.local` — `npm run aryeo:check` will print it.
+
+Deferred: **Taxes** (California treats photography deliverables as taxable when tangible media
+changes hands, generally not for digital-only delivery — worth a CPA conversation first),
+**Coupons** until launch, and **Pricing Plans** until there are volume agents to price for.
