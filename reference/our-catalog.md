@@ -331,18 +331,27 @@ gives a single predictable number per trip, which is easy to quote and easy for 
 Basic Metered (straight per-mile) produces odd figures like $37.40 and invites argument. Graduated
 sums every tier, which is fairer in theory and incomprehensible in practice.
 
-Suggested rings, assuming a Santa Rosa base — **confirm what address Aryeo measures from before
-trusting these**, and sanity-check each against a real drive:
+Rings, as configured:
 
-| Distance from base | Fee | Covers roughly |
-| --- | --- | --- |
-| 0–40 miles | $0 | Sonoma County, most of Napa and Marin |
-| 41–60 miles | $45 | Outer Napa, San Rafael, Fairfield |
-| 61–85 miles | $85 | Ukiah, Lakeport, Vallejo |
-| 86–150 miles | $150 | Mendocino coast, far Lake County |
+| First unit | Last unit | Fee | Covers roughly |
+| --- | --- | --- | --- |
+| 0 | 25 | $0 | Santa Rosa, Sebastopol, Healdsburg, Petaluma, Sonoma |
+| 26 | 50 | $45 | Napa, San Rafael, Calistoga, Novato |
+| 51 | 70 | $85 | Vallejo, Fairfield, Ukiah approaches |
+| 71 | 150 | $160 | Lakeport, Mendocino coast, far Solano |
+| 151 | ∞ | $300 | Beyond reasonable range — priced to discourage, or decline via territories |
 
-The first ring has to be generous enough that the core market stays free — Santa Rosa to Napa is
-about 35 miles, so a 30-mile first ring would start billing inside our own back yard.
+The fifth tier exists because the last tier is open-ended. Capping the fourth at 150 without a fifth
+would leave a 300-mile job billed at $160.
+
+Note Napa lands in the $45 ring at roughly 35 miles from Santa Rosa, so part of the core market
+carries a travel fee. That is deliberate.
+
+**Fee Structure must be set to the flat/fixed option, not "Per Unit."** Per Unit multiplies by
+mileage, so a $45 tier would bill $45 × 40 miles. The tier amounts above are per-trip totals.
+
+Also on that screen: the fee only applies to users explicitly selected under "Select Users You Want
+This Fee Applied For." Leaving it unchecked means the fee silently never fires.
 
 Note the warning on that screen: the fee applies **per team member servicing the appointment**.
 Harmless with one photographer, but it doubles the moment a second person is assigned to a shoot.
