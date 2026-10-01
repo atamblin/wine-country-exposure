@@ -475,12 +475,53 @@ do not treat it as a staging gate.
 | `google_analytics_id` / `facebook_pixel_id` / `google_tag_manager_id` | empty | Settable per form — needed to track the website → order form funnel |
 | `is_twilight_visible`, `use_automated_confirmation`, `require_early_login`, `always_show_contact_step`, `show_category_icons` | defaults | Worth a pass once the form is otherwise working |
 
-### Custom fields to add
+### Custom fields
 
 `custom_fields` is null. F8 collects Access Instructions (select), Combo Code, Gate Code,
 "Photograph the inside of the Garage?" and Appointment Notes. Gate and combo codes matter more here
 than in a city market — a locked gate at the end of a long driveway in Dry Creek or Occidental is a
 wasted trip, and the whole point of upfront payment is not having to re-shoot for free.
+
+Ours, with the three required ones first:
+
+**1. How will I access the property?** — select, **required**
+
+- Agent will meet me there
+- Lockbox — code below
+- Gate code below
+- Seller or occupant will be home
+- Vacant and unlocked
+- Other — see notes
+
+**2. Is the property occupied?** — select, **required**
+
+- Vacant
+- Vacant and staged
+- Owner-occupied
+- Tenant-occupied
+
+Occupancy drives how much prep a shoot needs. Tenant-occupied is the one that reliably goes wrong —
+the tenant was never told, and nothing is picked up.
+
+**3. Are there pets at the property?** — select, **required**
+
+- No pets
+- Dog — will be secured or removed
+- Dog — may be loose
+- Indoor cat — do not let out
+- Multiple or other pets — see notes
+
+Worth asking plainly rather than as a notes field. An indoor cat escaping while doors are open for
+shooting is a genuinely bad afternoon, and "may be loose" is information worth having before walking
+into a back yard with a tripod.
+
+**4. Gate Code** — text, optional
+**5. Lockbox / Combo Code** — text, optional
+**6. Photograph the garage interior?** — select (Yes / No), optional
+**7. Appointment Notes** — textarea, optional. Parking, long driveways, anything else.
+
+The code fields stay optional because most properties have neither, and a required field that often
+has no answer trains agents to type junk into it.
 
 ### Product filter — missing
 
