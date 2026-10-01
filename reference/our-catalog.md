@@ -142,9 +142,9 @@ add-on menu.
 - **Serviceable: unchecked.** **Filterable: unchecked.** Single price, no variants.
 - Price `0.00`, Duration `1`.
 
-Aryeo rejects a duration of 0 ("A duration of 1 or more minutes is required") even on
-non-serviceable products, so every zero-duration item in this sheet uses `1` instead. Because
-Serviceable is unchecked, that minute never reaches the scheduler.
+Aryeo rejects a duration of 0 on **main** products ("A duration of 1 or more minutes is required"),
+hence the 1 here. **Add-on** products accept 0 fine, which is why the digital add-ons below are
+still 0 — the same as F8's.
 
 This exists because the order form caps main products at one per order, which otherwise blocks
 anyone wanting a single add-on. F8 does the same thing. Order it last in the form so it reads as an
@@ -163,12 +163,12 @@ Set **Limit quantity = 1** on all of these except the two noted as unlimited.
 | Twilight Photography | 250.00 | 30 | yes | 1 |
 | Aerial Photography | 175.00 | 30 | yes | 1 |
 | Vertical Social Video | 125.00 | 30 | yes | 1 |
-| Cinematic Photo Film | 50.00 | 1 | **no** | 1 |
-| Virtual Staging — 5 Images | 50.00 | 1 | **no** | **unlimited** |
-| Custom Property Domain | 30.00 | 1 | **no** | 1 |
-| Slideshow Video Tour | 30.00 | 1 | **no** | 1 |
-| AI Listing Description | 25.00 | 1 | **no** | 1 |
-| Virtual Twilight — Per Image | 25.00 | 1 | **no** | **unlimited** |
+| Cinematic Photo Film | 50.00 | 0 | **no** | 1 |
+| Virtual Staging — 5 Images | 50.00 | 0 | **no** | **unlimited** |
+| Custom Property Domain | 30.00 | 0 | **no** | 1 |
+| Slideshow Video Tour | 30.00 | 0 | **no** | 1 |
+| AI Listing Description | 25.00 | 0 | **no** | 1 |
+| Virtual Twilight — Per Image | 25.00 | 0 | **no** | **unlimited** |
 
 Descriptions:
 

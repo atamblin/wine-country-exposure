@@ -42,7 +42,9 @@ function summarize(parsed) {
 const checks = [
   { label: "Order forms", path: "/order-forms", show: (x) => `${x.title ?? x.name ?? "(untitled)"}  id=${x.id}  type=${x.type ?? "?"}  upfront_payment=${x.require_upfront_payment ?? "?"}` },
   { label: "Product categories", path: "/product-categories", show: (x) => `${x.title ?? x.name}  id=${x.id}` },
-  { label: "Products", path: "/products?per_page=100", show: (x) => `${x.title ?? x.name}  type=${x.type ?? "?"}  price=${x.price?.amount ?? x.price ?? "?"}  id=${x.id}` },
+  // include_inactive is required to see unpublished products; without it the API
+  // returns only active ones, which reads as an empty catalog while we build.
+  { label: "Products", path: "/products?per_page=100&filter[include_inactive]=true", show: (x) => `${x.title ?? x.name}  type=${x.type ?? "?"}  active=${x.active ?? "?"}  variants=${Array.isArray(x.variants) ? x.variants.length : "?"}  id=${x.id}` },
   // Reference data, not account config. filter[type] is marked optional in the
   // OpenAPI spec but the API rejects the request without it.
   { label: "CA counties (Aryeo reference data)", path: "/regions?filter[type]=COUNTY&filter[country_code]=US&filter[state_code]=CA&per_page=100", show: (x) => `${x.title ?? x.name}  id=${x.id}`, maxShow: 6 },
