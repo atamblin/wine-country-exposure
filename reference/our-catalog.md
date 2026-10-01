@@ -319,12 +319,13 @@ region IDs from `GET /regions` are not used here — they belong to some other p
 Drawing exact county boundaries by hand is not worth it; coarse polygons are fine, because all
 territory awareness needs to answer is "do we serve this address?"
 
-Two territories, matching the travel-fee split:
+**The service area is central and west Sonoma County only.** Napa, Marin and Petaluma are
+deliberately excluded — we do not take jobs there. Two territories:
 
 | Name | Covers | Fee |
 | --- | --- | --- |
-| `North Bay Core` | Sonoma, Napa, Marin | 0 |
-| `North Bay Extended` | Solano, Lake, Mendocino | 0 |
+| `North Bay Core` | Healdsburg, Windsor, Santa Rosa, Rohnert Park, Sebastopol, Forestville | 0 |
+| `North Bay Extended` | Bodega Bay, Occidental, Jenner — coastal and west county, travel fee applies | 0 |
 
 Fields on the create screen: Territory Name, Territory Color, Territory Users (assign yourself),
 **Territory Fee Amount**, and **Fee Name Override** (blank shows as "Travel Fee" on the order).
@@ -342,27 +343,40 @@ The Create Fee screen offers five types: Flat, Percentage Based, Basic Metered (
 Graduated Metered (tiers summed across the distance), and Volume Metered (only the tier matching the
 distance applies).
 
-**Use Volume Metered.** Travel fees are distance-based, not county-based, so "free in Sonoma, Napa
-and Marin" is not directly expressible — distance rings are the practical proxy. Volume Metered
-gives a single predictable number per trip, which is easy to quote and easy for an agent to accept.
-Basic Metered (straight per-mile) produces odd figures like $37.40 and invites argument. Graduated
-sums every tier, which is fairer in theory and incomprehensible in practice.
+**Use Volume Metered** — one predictable number per trip. Basic Metered (straight per-mile) produces
+figures like $37.40 and invites argument. Graduated sums every tier, which is fairer in theory and
+incomprehensible in practice.
 
-Rings, as configured:
+**Miles are the wrong unit for west Sonoma County.** Check whether the "Metered by" dropdown offers
+travel *time* — the Products Overview page describes travel fees as "distance/time-based," so it
+likely does. Jenner is about 33 miles from Santa Rosa but close to 50 minutes on Highway 116 and the
+coast road; Bodega Bay is roughly 27 miles and 45 minutes. Mileage underprices exactly the jobs that
+cost the most time.
+
+Rings by **travel time**, preferred:
 
 | First unit | Last unit | Fee | Covers roughly |
 | --- | --- | --- | --- |
-| 0 | 25 | $0 | Santa Rosa, Sebastopol, Healdsburg, Petaluma, Sonoma |
-| 26 | 50 | $45 | Napa, San Rafael, Calistoga, Novato |
-| 51 | 70 | $85 | Vallejo, Fairfield, Ukiah approaches |
-| 71 | 150 | $160 | Lakeport, Mendocino coast, far Solano |
-| 151 | ∞ | $300 | Beyond reasonable range — priced to discourage, or decline via territories |
+| 0 | 30 min | $0 | Santa Rosa, Windsor, Rohnert Park, Sebastopol, Forestville, Healdsburg |
+| 31 | 45 min | $50 | Occidental, inland west county |
+| 46 | 70 min | $95 | Bodega Bay, Jenner, the coast road |
+| 71 | ∞ | $175 | Outside the service area — priced to discourage |
 
-The fifth tier exists because the last tier is open-ended. Capping the fourth at 150 without a fifth
-would leave a 300-mile job billed at $160.
+Rings by **mileage**, if time is not an option:
 
-Note Napa lands in the $45 ring at roughly 35 miles from Santa Rosa, so part of the core market
-carries a travel fee. That is deliberate.
+| First unit | Last unit | Fee | Covers roughly |
+| --- | --- | --- | --- |
+| 0 | 20 | $0 | The six core towns |
+| 21 | 30 | $50 | Occidental, Bodega Bay approaches |
+| 31 | 45 | $95 | Jenner, the coast |
+| 46 | ∞ | $175 | Outside the service area |
+
+The original rings (0–25 free, then $45/$85/$160/$300 out to 150+ miles) were built for a
+six-county footprint and are wrong for this one: every town we serve except Bodega Bay and Jenner
+sits inside 20 miles, so the upper tiers would never fire and coastal work would be billed as if it
+were a trip across town.
+
+The final tier is open-ended, so it has to be priced to discourage rather than left at a normal rate.
 
 **Fee Structure must be set to the flat/fixed option, not "Per Unit."** Per Unit multiplies by
 mileage, so a $45 tier would bill $45 × 40 miles. The tier amounts above are per-trip totals.
