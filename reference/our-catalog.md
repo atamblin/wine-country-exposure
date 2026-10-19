@@ -482,6 +482,9 @@ do not treat it as a staging gate.
 than in a city market — a locked gate at the end of a long driveway in Dry Creek or Occidental is a
 wasted trip, and the whole point of upfront payment is not having to re-shoot for free.
 
+**Voice: "we", not "I"** — additional photographers are planned, so customer-facing copy should not
+have to be rewritten later.
+
 Ours, with the three required ones first:
 
 **1. How will I access the property?** — select, **required**
@@ -510,6 +513,8 @@ the tenant was never told, and nothing is picked up.
 - Dog — may be loose
 - Indoor cat — do not let out
 - Multiple or other pets — see notes
+
+Description: "Please let us know so we can keep doors closed and pets safely inside."
 
 Worth asking plainly rather than as a notes field. An indoor cat escaping while doors are open for
 shooting is a genuinely bad afternoon, and "may be loose" is information worth having before walking
