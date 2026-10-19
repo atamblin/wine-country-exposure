@@ -1,6 +1,6 @@
 # Wine Country Exposure
 
-Real estate media company serving agents in the North Bay — Sonoma, Napa, and Marin counties.
+Real estate media company serving agents in central and west Sonoma County.
 
 Production site: [winecountryexposure.com](https://winecountryexposure.com)
 
@@ -26,6 +26,11 @@ returned URL where Aryeo handles scheduling and payment.
 Service pricing is synced from Aryeo's `GET /products` rather than hardcoded, so the on-site
 estimate cannot drift from what the agent is actually charged.
 
+## Before launch
+
+- [ ] Create the `adrian@winecountryexposure.com` mailbox. The site's "Email us" links already point
+      to it, and mail sent there bounces until it exists.
+
 ## Local development
 
 ```bash
@@ -38,13 +43,22 @@ The dev server runs at http://localhost:3000.
 
 ## Notes for contributors
 
-This project lives inside a Dropbox folder. `node_modules` is marked with the
-`com.dropbox.ignored` extended attribute so Dropbox does not sync dependencies. If you delete and
-recreate the directory, reapply it:
+This project lives inside a Dropbox folder under `~/Library/CloudStorage`, which is Dropbox's macOS
+File Provider integration. It honours `com.apple.fileprovider.ignore#P`, not the older
+`com.dropbox.ignored`. Without it Dropbox syncs `node_modules`, later evicts the files to
+online-only, and `next dev` hangs silently while it waits on thousands of on-demand downloads.
+
+Both `node_modules` and `.next` carry the flag. Set it on an empty directory before installing:
 
 ```bash
-xattr -w com.dropbox.ignored 1 node_modules
+rm -rf node_modules .next
+mkdir node_modules .next
+xattr -w 'com.apple.fileprovider.ignore#P' 1 node_modules .next
+npm install
 ```
+
+Use `npm install` rather than `npm ci` here — `npm ci` deletes and recreates `node_modules`, which
+drops the flag.
 
 Next 16 changed several App Router conventions. Consult `node_modules/next/dist/docs/` before
 relying on older patterns.
