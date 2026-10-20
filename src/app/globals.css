@@ -18,7 +18,7 @@
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
   --font-sans: var(--font-inter);
-  --font-display: var(--font-syne);
+  --font-display: var(--font-jakarta);
 }
 
 html {

@@ -29,7 +29,7 @@ export default function Home() {
         <p className="mb-6 font-display text-[12px] font-semibold tracking-[0.28em] uppercase text-accent">
           Site coming soon
         </p>
-        <h1 className="max-w-4xl font-display text-[2.6rem] font-semibold leading-[1.18] tracking-tight text-foreground sm:text-6xl lg:text-[4.5rem]">
+        <h1 className="max-w-4xl font-display text-[2.6rem] font-bold leading-[1.18] tracking-tight text-foreground sm:text-6xl lg:text-[4.5rem]">
           Listing media for Sonoma County, shot to sell.
         </h1>
         <p className="mt-7 max-w-xl text-base leading-8 text-muted sm:text-lg">
