@@ -26,11 +26,6 @@ returned URL where Aryeo handles scheduling and payment.
 Service pricing is synced from Aryeo's `GET /products` rather than hardcoded, so the on-site
 estimate cannot drift from what the agent is actually charged.
 
-## Before launch
-
-- [ ] Create the `adrian@winecountryexposure.com` mailbox. The site's "Email us" links already point
-      to it, and mail sent there bounces until it exists.
-
 ## Local development
 
 ```bash

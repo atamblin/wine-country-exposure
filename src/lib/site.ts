@@ -5,7 +5,7 @@ export const site = {
   description:
     "Listing photography, cinematic video, aerials, Matterport, and Zillow 3D for agents in Santa Rosa, Healdsburg, Sebastopol, and west Sonoma County.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.winecountryexposure.com",
-  email: "adrian@winecountryexposure.com",
+  email: "info@winecountryexposure.com",
   phoneDisplay: "(707) 322-2233",
   phoneHref: "tel:+17073222233",
   serviceArea:
