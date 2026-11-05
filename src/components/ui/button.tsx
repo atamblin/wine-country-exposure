@@ -2,22 +2,22 @@ import Link from "next/link";
 import type { ComponentProps } from "react";
 
 const variants = {
-  primary:
-    "bg-accent text-accent-ink hover:bg-foreground",
-  ghost:
-    "border border-line bg-transparent text-foreground hover:border-foreground",
+  primary: "bg-lime text-charcoal hover:bg-[#b5f01f]",
+  dark: "bg-charcoal text-ivory hover:bg-midnight",
+  outline: "border border-charcoal/25 text-charcoal hover:border-charcoal",
+  "outline-light": "border border-white/60 text-white hover:bg-white hover:text-charcoal",
 } as const;
 
 const sizes = {
-  md: "h-11 px-5 text-[13px]",
-  lg: "h-12 px-6 text-sm",
+  md: "h-10 px-4 text-sm",
+  lg: "h-12 px-6 text-[15px]",
 } as const;
 
 type ButtonVariant = keyof typeof variants;
 type ButtonSize = keyof typeof sizes;
 
 const base =
-  "inline-flex items-center justify-center font-display font-semibold tracking-[0.08em] uppercase transition-colors duration-200";
+  "inline-flex items-center justify-center rounded-md font-sans font-semibold whitespace-nowrap transition-colors duration-200";
 
 function classes(
   variant: ButtonVariant,
