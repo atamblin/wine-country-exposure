@@ -24,7 +24,7 @@ Logo: `primary` variant on ivory/white, `reverse` variant on Midnight.
 
 ## Typography
 
-- **Headlines:** Fraunces (Google Fonts), standing in for IvyPresto. Regular weight for section
+- **Headlines:** Newsreader (Google Fonts), standing in for IvyPresto. Chosen over Fraunces, whose italic & and l are too decorative. Regular weight for section
   headings; light weight with one italic phrase for the hero and the closing CTA.
 - **Everything else:** Plus Jakarta Sans. Body 16–18px. Eyebrow labels 13–14px, uppercase, wide
   tracking. Buttons 14–16px, semibold.

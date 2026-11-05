@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
+import { Newsreader, Plus_Jakarta_Sans } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -8,8 +8,8 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
   style: ["normal", "italic"],
   axes: ["opsz"],
@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${jakarta.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${jakarta.variable} ${newsreader.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
