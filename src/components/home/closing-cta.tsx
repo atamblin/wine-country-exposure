@@ -24,8 +24,8 @@ export function ClosingCta() {
             <ButtonLink href={site.orderUrl} size="lg">
               Book a Shoot
             </ButtonLink>
-            <ButtonLink href={`mailto:${site.email}`} variant="outline-light" size="lg">
-              Email us
+            <ButtonLink href="/quote" variant="outline-light" size="lg">
+              Get a quote
             </ButtonLink>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { site } from "@/lib/site";
 
 export function SiteFooter() {
@@ -36,6 +37,11 @@ export function SiteFooter() {
               <a className="hover:text-lime" href={site.orderUrl} target="_blank" rel="noreferrer">
                 Book a shoot
               </a>
+            </li>
+            <li>
+              <Link className="hover:text-lime" href="/quote">
+                Get a quote
+              </Link>
             </li>
             <li>
               <a className="hover:text-lime" href={site.loginUrl} target="_blank" rel="noreferrer">

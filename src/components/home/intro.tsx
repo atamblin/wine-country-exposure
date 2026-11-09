@@ -1,7 +1,10 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { PhotoLightbox } from "@/components/photo-lightbox";
 import { introPhotos } from "@/lib/photos";
+
+const collage = [introPhotos.main, introPhotos.top, introPhotos.bottom];
 
 export function Intro() {
   return (
@@ -30,30 +33,41 @@ export function Intro() {
           </div>
         </div>
 
-        <div className="relative mx-auto aspect-[5/4] w-full max-w-xl">
-          <div
-            aria-hidden="true"
-            className="absolute top-1/2 left-1/2 size-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/35 blur-3xl"
-          />
-          <div
-            data-speed="0.4"
-            className="absolute top-[12%] left-[6%] w-[72%] overflow-hidden rounded-lg shadow-2xl shadow-midnight/20"
-          >
-            <Image src={introPhotos.main.src} alt={introPhotos.main.alt} sizes="(min-width: 1024px) 30vw, 72vw" placeholder="blur" />
+        <PhotoLightbox photos={collage}>
+          <div className="relative mx-auto aspect-[5/4] w-full max-w-xl">
+            <div
+              aria-hidden="true"
+              className="absolute top-1/2 left-1/2 size-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/35 blur-3xl"
+            />
+            <button
+              type="button"
+              data-speed="0.4"
+              data-lightbox-index="0"
+              aria-label={`View larger: ${collage[0].alt}`}
+              className="absolute block cursor-zoom-in top-[12%] left-[6%] w-[72%] overflow-hidden rounded-lg shadow-2xl shadow-midnight/20"
+            >
+              <Image src={introPhotos.main.src} alt={introPhotos.main.alt} sizes="(min-width: 1024px) 30vw, 72vw" placeholder="blur" />
+            </button>
+            <button
+              type="button"
+              data-speed="1"
+              data-lightbox-index="1"
+              aria-label={`View larger: ${collage[1].alt}`}
+              className="absolute block cursor-zoom-in top-0 right-0 w-[40%] overflow-hidden rounded-lg border-4 border-paper shadow-xl shadow-midnight/20"
+            >
+              <Image src={introPhotos.top.src} alt={introPhotos.top.alt} sizes="(min-width: 1024px) 18vw, 40vw" placeholder="blur" />
+            </button>
+            <button
+              type="button"
+              data-speed="-0.6"
+              data-lightbox-index="2"
+              aria-label={`View larger: ${collage[2].alt}`}
+              className="absolute block cursor-zoom-in right-[4%] bottom-0 w-[46%] overflow-hidden rounded-lg border-4 border-paper shadow-xl shadow-midnight/20"
+            >
+              <Image src={introPhotos.bottom.src} alt={introPhotos.bottom.alt} sizes="(min-width: 1024px) 20vw, 46vw" placeholder="blur" />
+            </button>
           </div>
-          <div
-            data-speed="1"
-            className="absolute top-0 right-0 w-[40%] overflow-hidden rounded-lg border-4 border-paper shadow-xl shadow-midnight/20"
-          >
-            <Image src={introPhotos.top.src} alt={introPhotos.top.alt} sizes="(min-width: 1024px) 18vw, 40vw" placeholder="blur" />
-          </div>
-          <div
-            data-speed="-0.6"
-            className="absolute right-[4%] bottom-0 w-[46%] overflow-hidden rounded-lg border-4 border-paper shadow-xl shadow-midnight/20"
-          >
-            <Image src={introPhotos.bottom.src} alt={introPhotos.bottom.alt} sizes="(min-width: 1024px) 20vw, 46vw" placeholder="blur" />
-          </div>
-        </div>
+        </PhotoLightbox>
       </div>
     </section>
   );

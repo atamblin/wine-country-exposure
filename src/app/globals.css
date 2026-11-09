@@ -29,6 +29,10 @@ html {
   color: var(--charcoal);
 }
 
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 body {
   background: var(--ivory);
   color: var(--charcoal);

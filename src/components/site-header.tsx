@@ -4,11 +4,11 @@ import { ButtonLink } from "@/components/ui/button";
 import { site } from "@/lib/site";
 
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#work", label: "Our Work" },
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#service-area", label: "Service Area" },
-  { href: `mailto:${site.email}`, label: "Contact" },
+  { href: "/#services", label: "Services" },
+  { href: "/#work", label: "Our Work" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#service-area", label: "Service Area" },
+  { href: "/quote", label: "Get a Quote" },
 ];
 
 export function SiteHeader() {
@@ -25,11 +25,11 @@ export function SiteHeader() {
             className="h-10 w-auto sm:h-12"
           />
         </Link>
-        <nav className="hidden items-center gap-7 text-sm font-medium text-charcoal lg:flex">
+        <nav className="hidden items-center gap-6 text-sm font-medium whitespace-nowrap text-charcoal lg:flex xl:gap-8">
           {links.map((link) => (
-            <a key={link.label} href={link.href} className="transition-colors hover:text-slate">
+            <Link key={link.label} href={link.href} className="transition-colors hover:text-slate">
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="flex items-center gap-2">
