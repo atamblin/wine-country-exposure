@@ -37,6 +37,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# claude code (personal overrides)
+.claude/settings.local.json
+
 # source photos (kept in Dropbox, not git)
 /Photos - Homes/
 
