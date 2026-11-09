@@ -37,6 +37,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# source photos (kept in Dropbox, not git)
+/Photos - Homes/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
