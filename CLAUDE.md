@@ -71,6 +71,8 @@ project environment variables.
 
 - Brokerage logos and any photo swaps (Adrian is supplying).
 - Upgrade Vercel from Hobby to Pro before promoting the site (Hobby is non-commercial only).
+- Vercel only has `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_ARYEO_ORDER_URL`. Add `ARYEO_API_KEY` and
+  `ARYEO_ORDER_FORM_ID` (Production and Preview) before shipping any server route that calls Aryeo.
 - Optional: Resend so the quote emails itself (today "Email us this quote" opens the agent's mail app).
 - Not built yet: services/pricing/portfolio/about/contact pages, MDX blog, `/areas/[city]` SEO pages,
   analytics (GA4 + Vercel Analytics), Google Business Profile.
