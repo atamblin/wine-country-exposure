@@ -43,7 +43,7 @@ export default function PrivacyPage() {
             Property details: address, square footage, occupancy, pets, access instructions such as lockbox
             or gate codes, and any notes you add.
           </li>
-          <li>Anything you send us by email, text, or phone.</li>
+          <li>Anything you send us by email or through our booking portal.</li>
         </ul>
         <p>
           <strong>Payment information.</strong> Card payments are processed by Stripe. We see the payment
@@ -192,8 +192,6 @@ export default function PrivacyPage() {
           {site.name}, Sonoma County, California
           <br />
           {email}
-          <br />
-          <a href={site.phoneHref}>{site.phoneDisplay}</a>
         </p>
       </LegalSection>
     </LegalPage>

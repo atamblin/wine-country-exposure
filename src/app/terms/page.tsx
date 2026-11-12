@@ -260,14 +260,13 @@ export default function TermsPage() {
       <LegalSection id="accessibility" title="14. Accessibility">
         <p>
           We want this website to work for everyone. If you have trouble using any part of it, email{" "}
-          {email} or call <a href={site.phoneHref}>{site.phoneDisplay}</a> and we&apos;ll help you directly
-          and fix what we can.
+          {email} and we&apos;ll help you directly and fix what we can.
         </p>
       </LegalSection>
 
       <LegalSection id="disputes" title="15. Disputes">
         <p>
-          If something goes wrong, please contact us first. Most problems are solved with a phone call.
+          If something goes wrong, please contact us first. Most problems are solved by contacting us.
           These terms are governed by California law. Any dispute that can&apos;t be resolved informally
           will be handled in the state courts located in Sonoma County, California, including small claims
           court where it qualifies.
@@ -302,8 +301,6 @@ export default function TermsPage() {
           Sonoma County, California
           <br />
           {email}
-          <br />
-          <a href={site.phoneHref}>{site.phoneDisplay}</a>
         </p>
       </LegalSection>
     </LegalPage>

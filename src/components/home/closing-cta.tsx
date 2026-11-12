@@ -40,9 +40,9 @@ export function ClosingCta() {
             ))}
           </ul>
           <p className="mt-8 text-sm text-stone">
-            Or call{" "}
-            <a href={site.phoneHref} className="text-ivory underline-offset-4 hover:underline">
-              {site.phoneDisplay}
+            Or email{" "}
+            <a href={`mailto:${site.email}`} className="text-ivory underline-offset-4 hover:underline">
+              {site.email}
             </a>
           </p>
         </div>

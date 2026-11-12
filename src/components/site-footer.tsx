@@ -24,11 +24,6 @@ export function SiteFooter() {
           <h3 className="font-serif text-xl">Contact</h3>
           <ul className="mt-4 space-y-2 text-sm text-stone">
             <li>
-              <a className="hover:text-lime" href={site.phoneHref}>
-                {site.phoneDisplay}
-              </a>
-            </li>
-            <li>
               <a className="hover:text-lime" href={`mailto:${site.email}`}>
                 {site.email}
               </a>
