@@ -56,9 +56,23 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="relative border-t border-white/10">
-        <p className="mx-auto max-w-7xl px-5 py-6 text-xs text-stone sm:px-8">
-          © {new Date().getFullYear()} {site.name}. All rights reserved.
-        </p>
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-5 py-6 text-xs text-stone sm:px-8">
+          <p>
+            © {new Date().getFullYear()} {site.name}. All rights reserved.
+          </p>
+          <ul className="flex gap-6">
+            <li>
+              <Link className="hover:text-lime" href="/terms">
+                Terms of Service
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-lime" href="/privacy">
+                Privacy Policy
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
   );
