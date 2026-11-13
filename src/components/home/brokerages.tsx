@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import { brokerages } from "@/lib/brokerages";
 
@@ -12,30 +13,40 @@ function logoSize(width: number, height: number) {
   return { width: Math.round(h * ratio), height: Math.round(h) };
 }
 
+// One full set of logos. The strip renders it twice in a row and slides left by exactly one set,
+// so the loop never shows a gap. The second copy is hidden from screen readers.
+function LogoSet({ hidden = false }: { hidden?: boolean }) {
+  return (
+    <ul aria-hidden={hidden || undefined} className="flex shrink-0 items-center gap-16 pr-16">
+      {brokerages.map(({ name, logo }) => {
+        const size = logoSize(logo.width, logo.height);
+        return (
+          <li key={name} className="flex h-16 shrink-0 items-center">
+            <Image src={logo} alt={hidden ? "" : name} sizes="200px" style={{ width: size.width, height: "auto" }} />
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 export function Brokerages() {
   return (
-    <section aria-label="Brokerages we work with" className="border-y border-hairline bg-paper">
-      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
-        <p className="text-center text-xs font-semibold tracking-[0.22em] text-slate uppercase">
-          Trusted by agents at
-        </p>
-        <ul className="mt-8 grid grid-cols-2 items-center gap-x-8 gap-y-8 sm:grid-cols-4 sm:gap-x-10 lg:grid-cols-6">
-          {brokerages.map(({ name, logo }) => {
-            const size = logoSize(logo.width, logo.height);
-            return (
-              <li key={name} data-reveal className="flex h-14 items-center justify-center">
-                <Image
-                  src={logo}
-                  alt={name}
-                  title={name}
-                  sizes="160px"
-                  style={{ width: size.width, maxWidth: "100%", height: "auto" }}
-                  className="transition duration-300 hover:scale-105"
-                />
-              </li>
-            );
-          })}
-        </ul>
+    <section aria-label="Brokerages we work with" className="border-y border-hairline bg-paper py-12">
+      <p data-reveal className="text-center text-xs font-semibold tracking-[0.22em] text-slate uppercase">
+        Trusted by agents at
+      </p>
+      <div
+        data-reveal
+        className="group mt-8 overflow-hidden motion-reduce:overflow-x-auto [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+      >
+        <div
+          className="marquee-track flex w-max group-hover:[animation-play-state:paused]"
+          style={{ "--marquee-duration": "80s" } as CSSProperties}
+        >
+          <LogoSet />
+          <LogoSet hidden />
+        </div>
       </div>
     </section>
   );
