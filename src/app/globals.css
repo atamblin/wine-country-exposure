@@ -66,3 +66,20 @@ body {
     visibility: visible;
   }
 }
+
+/* Brokerage logo strip: two identical copies side by side, slid left by one copy's width so the loop is seamless. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee var(--marquee-duration, 50s) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
