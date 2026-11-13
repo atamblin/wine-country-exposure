@@ -14,4 +14,8 @@ export const site = {
     process.env.NEXT_PUBLIC_ARYEO_ORDER_URL ??
     "https://media.winecountryexposure.com/order-forms/01a0f9c0-da29-72a0-8a32-f4e56ae747a0",
   loginUrl: "https://media.winecountryexposure.com/login",
+  social: {
+    instagram: "https://www.instagram.com/winecountryexposure/",
+    facebook: "https://www.facebook.com/winecountryexposure/",
+  },
 } as const;
