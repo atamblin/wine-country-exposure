@@ -36,7 +36,9 @@ project environment variables.
 
 ## Where things are
 
-- `src/lib/site.ts`: business name, contact info, service area towns, Aryeo order/login URLs, brokerages.
+- `src/lib/site.ts`: business name, contact info, service area towns, Aryeo order/login URLs.
+- `src/lib/brokerages.ts` and `src/assets/brokerages/`: logos in the homepage "Trusted by agents at" strip
+  (full-color masters and SVGs are in `Brokerage Logos/` in Dropbox).
 - `src/lib/pricing.ts`: quote-builder estimator. Aryeo is the source of truth for prices; this module
   must stay in sync with the live Aryeo products (`npm run aryeo:audit`).
 - `src/lib/photos.ts` and `src/assets/photos/`: optimized photos the site uses. `Photos - Homes/` and
