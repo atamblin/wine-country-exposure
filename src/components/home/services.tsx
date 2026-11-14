@@ -50,7 +50,7 @@ export function Services() {
             </h2>
           </div>
           <div data-reveal>
-            <ButtonLink href={site.orderUrl} variant="outline">
+            <ButtonLink href={site.bookUrl} newTab variant="outline">
               View all &amp; book
             </ButtonLink>
           </div>
@@ -61,7 +61,7 @@ export function Services() {
             <a
               key={service.name}
               data-reveal
-              href={site.orderUrl}
+              href={site.bookUrl}
               target="_blank"
               rel="noreferrer"
               className="group relative block aspect-[5/4] overflow-hidden rounded-lg bg-midnight"

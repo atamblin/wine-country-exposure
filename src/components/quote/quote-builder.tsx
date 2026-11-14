@@ -228,7 +228,7 @@ export function QuoteBuilder() {
         )}
 
         <div className="mt-7 flex flex-col gap-3">
-          <ButtonLink href={site.orderUrl} size="lg">
+          <ButtonLink href={site.bookUrl} newTab size="lg">
             Book this shoot
           </ButtonLink>
           <ButtonLink href={mailto} variant="outline-light" size="lg">
