@@ -15,6 +15,8 @@ export const site = {
     "Santa Rosa, Healdsburg, Windsor, Rohnert Park, Sebastopol, Forestville, Occidental, Bodega Bay, and Jenner.",
   coreTowns: ["Santa Rosa", "Healdsburg", "Windsor", "Rohnert Park", "Sebastopol", "Forestville"],
   extendedTowns: ["Occidental", "Bodega Bay", "Jenner"],
+  // Short link for "Book a Shoot" buttons and sharing; redirects to orderUrl (see next.config.ts).
+  bookUrl: "/book",
   orderUrl:
     process.env.NEXT_PUBLIC_ARYEO_ORDER_URL ??
     "https://media.winecountryexposure.com/order-forms/01a0f9c0-da29-72a0-8a32-f4e56ae747a0",

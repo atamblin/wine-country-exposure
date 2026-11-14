@@ -51,6 +51,8 @@ type ButtonLinkProps = Omit<ComponentProps<typeof Link>, "href"> & {
   href: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  /** Open in a new tab with a plain link (e.g. /book, which redirects to Aryeo). */
+  newTab?: boolean;
 };
 
 export function ButtonLink({
@@ -58,16 +60,17 @@ export function ButtonLink({
   variant = "primary",
   size = "md",
   href,
+  newTab = false,
   ...props
 }: ButtonLinkProps) {
   const classNames = classes(variant, size, className);
 
-  if (isExternalHref(href)) {
+  if (newTab || isExternalHref(href)) {
     return (
       <a
         className={classNames}
         href={href}
-        {...(href.startsWith("http")
+        {...(newTab || href.startsWith("http")
           ? { rel: "noreferrer", target: "_blank" }
           : {})}
       >

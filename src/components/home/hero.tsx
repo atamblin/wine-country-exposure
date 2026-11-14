@@ -61,7 +61,7 @@ export function Hero() {
           data-hero-fade
           className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
-          <ButtonLink href={site.orderUrl} size="lg">
+          <ButtonLink href={site.bookUrl} newTab size="lg">
             Book a Shoot
           </ButtonLink>
           <ButtonLink href="#work" variant="outline-light" size="lg">

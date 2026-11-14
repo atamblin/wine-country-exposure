@@ -21,7 +21,7 @@ export function ClosingCta() {
             back to you the same day.
           </p>
           <div data-reveal className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={site.orderUrl} size="lg">
+            <ButtonLink href={site.bookUrl} newTab size="lg">
               Book a Shoot
             </ButtonLink>
             <ButtonLink href="/quote" variant="outline-light" size="lg">

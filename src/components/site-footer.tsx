@@ -88,7 +88,7 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <a className="hover:text-lime" href={site.orderUrl} target="_blank" rel="noreferrer">
+              <a className="hover:text-lime" href={site.bookUrl} target="_blank" rel="noreferrer">
                 Book a shoot
               </a>
             </li>

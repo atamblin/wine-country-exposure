@@ -38,7 +38,7 @@ export function SiteHeader() {
               Sign In
             </ButtonLink>
           </span>
-          <ButtonLink href={site.orderUrl}>Book a Shoot</ButtonLink>
+          <ButtonLink href={site.bookUrl} newTab>Book a Shoot</ButtonLink>
         </div>
       </div>
     </header>
