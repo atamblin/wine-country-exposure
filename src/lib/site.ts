@@ -17,9 +17,11 @@ export const site = {
   extendedTowns: ["Occidental", "Bodega Bay", "Jenner"],
   // Short link for "Book a Shoot" buttons and sharing; redirects to orderUrl (see next.config.ts).
   bookUrl: "/book",
-  orderUrl:
+  // Trimmed because stray whitespace in the Vercel env value breaks the /book redirect.
+  orderUrl: (
     process.env.NEXT_PUBLIC_ARYEO_ORDER_URL ??
-    "https://media.winecountryexposure.com/order-forms/01a0f9c0-da29-72a0-8a32-f4e56ae747a0",
+    "https://media.winecountryexposure.com/order-forms/01a0f9c0-da29-72a0-8a32-f4e56ae747a0"
+  ).trim(),
   loginUrl: "https://media.winecountryexposure.com/login",
   social: {
     instagram: "https://www.instagram.com/winecountryexposure/",
