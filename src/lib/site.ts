@@ -6,6 +6,11 @@ export const site = {
     "Listing photography, cinematic video, aerials, Matterport, and Zillow 3D for agents in Santa Rosa, Healdsburg, Sebastopol, and west Sonoma County.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.winecountryexposure.com",
   email: "info@winecountryexposure.com",
+  phoneDisplay: "(707) 322-2233",
+  phoneHref: "tel:+17073222233",
+  // Must match the phone on our Google Business Profile exactly.
+  phoneE164: "+17073222233",
+  googleReviewUrl: "https://g.page/r/CdwSk3fmqnX9EAI/review",
   serviceArea:
     "Santa Rosa, Healdsburg, Windsor, Rohnert Park, Sebastopol, Forestville, Occidental, Bodega Bay, and Jenner.",
   coreTowns: ["Santa Rosa", "Healdsburg", "Windsor", "Rohnert Park", "Sebastopol", "Forestville"],

@@ -78,6 +78,11 @@ export function SiteFooter() {
           <h3 className="font-serif text-xl">Contact</h3>
           <ul className="mt-4 space-y-2 text-sm text-stone">
             <li>
+              <a className="hover:text-lime" href={site.phoneHref}>
+                {site.phoneDisplay}
+              </a>
+            </li>
+            <li>
               <a className="hover:text-lime" href={`mailto:${site.email}`}>
                 {site.email}
               </a>
@@ -95,6 +100,11 @@ export function SiteFooter() {
             <li>
               <a className="hover:text-lime" href={site.loginUrl} target="_blank" rel="noreferrer">
                 Client sign in
+              </a>
+            </li>
+            <li>
+              <a className="hover:text-lime" href={site.googleReviewUrl} target="_blank" rel="noreferrer">
+                Leave us a review
               </a>
             </li>
           </ul>

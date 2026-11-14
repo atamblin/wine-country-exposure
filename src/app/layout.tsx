@@ -24,6 +24,24 @@ export const metadata: Metadata = {
   description: site.description,
 };
 
+// Business details for Google (structured data). Keep name, phone, and towns identical to the
+// Google Business Profile. We travel to homes, so no street address is published.
+const businessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: site.name,
+  description: site.description,
+  url: site.url,
+  logo: `${site.url}/brand/wce-horizontal-primary.svg`,
+  email: site.email,
+  telephone: site.phoneE164,
+  areaServed: [...site.coreTowns, ...site.extendedTowns].map((town) => ({
+    "@type": "City",
+    name: `${town}, CA`,
+  })),
+  sameAs: [site.social.instagram, site.social.facebook],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -40,6 +58,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className="min-h-full bg-ivory font-sans text-charcoal">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(businessJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         {children}
       </body>
     </html>
