@@ -23,6 +23,28 @@ export const metadata: Metadata = {
     template: `%s — ${site.name}`,
   },
   description: site.description,
+  applicationName: site.name,
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    locale: "en_US",
+    title: `${site.name} — Sonoma County real estate media`,
+    description: site.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — Sonoma County real estate media`,
+    description: site.description,
+  },
+};
+
+// Tells Google the site's name, so results say "Wine Country Exposure" instead of the domain.
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.name,
+  alternateName: site.shortName,
+  url: site.url,
 };
 
 // Business details for Google (structured data). Keep name, phone, and towns identical to the
@@ -33,7 +55,9 @@ const businessJsonLd = {
   name: site.name,
   description: site.description,
   url: site.url,
-  logo: `${site.url}/brand/wce-horizontal-primary.svg`,
+  // Google needs a raster logo (PNG/JPG), at least 112px square.
+  logo: `${site.url}/brand/wce-icon-512.png`,
+  image: `${site.url}/opengraph-image`,
   email: site.email,
   telephone: site.phoneE164,
   areaServed: [...site.coreTowns, ...site.extendedTowns].map((town) => ({
@@ -63,6 +87,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(businessJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c"),
           }}
         />
         {children}
