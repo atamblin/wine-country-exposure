@@ -46,3 +46,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Adrian's source files in Dropbox (not part of the site)
+/Logo/
+/Brokerage Logos/

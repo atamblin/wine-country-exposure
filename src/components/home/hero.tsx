@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       data-hero
-      className="relative flex min-h-[calc(100svh-4rem)] items-center justify-center overflow-hidden bg-midnight text-white"
+      className="relative flex min-h-svh items-center justify-center overflow-hidden bg-midnight text-white"
     >
       <div data-hero-media className="absolute -inset-y-[10%] inset-x-0">
         {heroPhotos.map((photo, index) => (
