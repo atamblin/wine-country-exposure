@@ -62,7 +62,7 @@ export default async function Image() {
           <div style={{ marginTop: 28, fontSize: 34, maxWidth: 720, lineHeight: 1.3 }}>
             Real estate photography, video, aerials, and 3D tours for Sonoma County agents.
           </div>
-          <div style={{ marginTop: 24, fontSize: 26, color: "#C8FF3D" }}>winecountryexposure.com</div>
+          <div style={{ marginTop: 24, fontSize: 26, color: "#9DC42F" }}>winecountryexposure.com</div>
         </div>
       </div>
     ),

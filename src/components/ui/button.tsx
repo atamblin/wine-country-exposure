@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ComponentProps } from "react";
 
 const variants = {
-  primary: "bg-lime text-charcoal hover:bg-[#b5f01f]",
+  primary: "bg-lime text-charcoal hover:bg-[#8cb126]",
   dark: "bg-charcoal text-ivory hover:bg-midnight",
   outline: "border border-charcoal/25 text-charcoal hover:border-charcoal",
   "outline-light": "border border-white/60 text-white hover:bg-white hover:text-charcoal",
