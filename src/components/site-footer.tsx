@@ -1,18 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
-// Footer tags, in the spirit of a blog tag cloud. We don't have a blog or per-town pages yet, so
-// each tag points at the matching homepage section. Point them at real pages once those exist.
+// Footer tags, in the spirit of a blog tag cloud. Services link to their pages; towns point at the
+// homepage service-area section until /areas/[city] pages exist.
 const tags: { label: string; href: string }[] = [
-  { label: "Listing Photography", href: "/#services" },
-  { label: "Video", href: "/#services" },
-  { label: "Aerial", href: "/#services" },
-  { label: "Twilight", href: "/#services" },
-  { label: "Matterport", href: "/#services" },
-  { label: "Zillow 3D", href: "/#services" },
-  { label: "Floor Plans", href: "/#services" },
-  { label: "Virtual Staging", href: "/#services" },
+  ...services.map((s) => ({ label: s.shortName, href: `/services/${s.slug}` })),
   { label: "AB 723", href: "/#ab-723" },
   { label: "Sonoma County", href: "/#service-area" },
   ...[...site.coreTowns, ...site.extendedTowns].map((town) => ({ label: town, href: "/#service-area" })),
