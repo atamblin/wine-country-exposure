@@ -1,20 +1,20 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { servicePhotos, type Photo } from "@/lib/photos";
-import { site } from "@/lib/site";
 
-type Service = { name: string; price: string; photo?: Photo };
+type Service = { name: string; price: string; slug: string; photo?: Photo };
 
 const services: Service[] = [
-  { name: "Listing Photography", price: "From $195", photo: servicePhotos.photography },
-  { name: "Photo + Video Package", price: "From $255", photo: servicePhotos.photoVideo },
-  { name: "Aerial Photo & Video", price: "From $175", photo: servicePhotos.aerial },
-  { name: "Twilight Photography", price: "From $250", photo: servicePhotos.twilight },
-  { name: "Matterport 3D Tour", price: "From $250", photo: servicePhotos.matterport },
-  { name: "Zillow 3D Home Tour", price: "From $250", photo: servicePhotos.zillow },
-  { name: "Floor Plans", price: "From $125" },
-  { name: "Virtual Staging", price: "$50 for 5 images", photo: servicePhotos.staging },
+  { name: "Listing Photography", slug: "listing-photography", price: "From $195", photo: servicePhotos.photography },
+  { name: "Photo + Video Package", slug: "real-estate-video", price: "From $255", photo: servicePhotos.photoVideo },
+  { name: "Aerial Photo & Video", slug: "aerial-drone-photography", price: "From $175", photo: servicePhotos.aerial },
+  { name: "Twilight Photography", slug: "twilight-photography", price: "From $250", photo: servicePhotos.twilight },
+  { name: "Matterport 3D Tour", slug: "matterport-3d-tours", price: "From $250", photo: servicePhotos.matterport },
+  { name: "Zillow 3D Home Tour", slug: "zillow-3d-home-tours", price: "From $250", photo: servicePhotos.zillow },
+  { name: "Floor Plans", slug: "floor-plans", price: "From $125" },
+  { name: "Virtual Staging", slug: "virtual-staging", price: "$50 for 5 images", photo: servicePhotos.staging },
 ];
 
 function FloorPlanArt() {
@@ -50,20 +50,18 @@ export function Services() {
             </h2>
           </div>
           <div data-reveal>
-            <ButtonLink href={site.bookUrl} newTab variant="outline">
-              View all &amp; book
+            <ButtonLink href="/services" variant="outline">
+              View all services
             </ButtonLink>
           </div>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
-            <a
+            <Link
               key={service.name}
               data-reveal
-              href={site.bookUrl}
-              target="_blank"
-              rel="noreferrer"
+              href={`/services/${service.slug}`}
               className="group relative block aspect-[5/4] overflow-hidden rounded-lg bg-midnight"
             >
               {service.photo ? (
@@ -85,7 +83,7 @@ export function Services() {
                   {service.price}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
