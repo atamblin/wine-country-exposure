@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Get a quote",
   description:
     "Price your listing photography, video, aerials, and 3D tour in under a minute. Central and west Sonoma County.",
+  alternates: { canonical: "/quote" },
 };
 
 export default function QuotePage() {
