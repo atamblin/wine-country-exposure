@@ -15,7 +15,7 @@ From the designer's brand package (`Logo/wine-country-exposure/READ-ME.txt`).
 | Charcoal | `#202427` | Body text, dark buttons on ivory |
 | Midnight | `#142B3B` | Dark sections: closing CTA, footer, quote banner, headings on ivory |
 | Stone | `#A6AAA5` | Muted text on dark, hairlines, chips |
-| Lime | `#C8FF3D` | Primary buttons (charcoal text), italic accent words on Midnight only |
+| Lime (Deep Chartreuse) | `#9DC42F` | Primary buttons (charcoal text), italic accent words on Midnight only |
 
 Lime rule: never lime text on ivory or white. On light sections lime appears only as a filled button
 with charcoal text, or as a small graphic mark.

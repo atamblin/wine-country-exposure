@@ -6,7 +6,7 @@
   --charcoal: #202427;
   --midnight: #142b3b;
   --stone: #a6aaa5;
-  --lime: #c8ff3d;
+  --lime: #9dc42f; /* Deep Chartreuse (token kept as "lime" so class names stay the same) */
   --slate: #5b6366;
   --hairline: rgba(32, 36, 39, 0.12);
 }
