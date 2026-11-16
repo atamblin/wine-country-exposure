@@ -10,6 +10,12 @@ import { ServiceArea } from "@/components/home/service-area";
 import { Services } from "@/components/home/services";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import type { Metadata } from "next";
+
+// Tells Google https://www.winecountryexposure.com/ is the one true homepage address.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
