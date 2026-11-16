@@ -14,7 +14,7 @@ import { SiteHeader } from "@/components/site-header";
 export default function Home() {
   return (
     <>
-      <SiteHeader />
+      <SiteHeader overlay />
       <HomeMotion>
         <main>
           <Hero />
