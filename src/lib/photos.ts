@@ -1,6 +1,7 @@
 import type { StaticImageData } from "next/image";
-import heroLivingHealdsburg from "@/assets/photos/hero-living-healdsburg.jpg";
-import heroPoolHealdsburg from "@/assets/photos/hero-pool-healdsburg.jpg";
+import heroGreatRoom from "@/assets/photos/hero-great-room.jpg";
+import heroKitchenIsland from "@/assets/photos/hero-kitchen-island.jpg";
+import heroPoolOaks from "@/assets/photos/hero-pool-oaks.jpg";
 import heroTwilightFrontYard from "@/assets/photos/hero-twilight-front-yard.jpg";
 import introFrontPorch from "@/assets/photos/intro-front-porch.jpg";
 import introKitchenSantaRosa from "@/assets/photos/intro-kitchen-santa-rosa.jpg";
@@ -33,8 +34,9 @@ export type Photo = { src: StaticImageData; alt: string };
 
 export const heroPhotos: Photo[] = [
   { src: heroTwilightFrontYard, alt: "Single-story ranch home at twilight with lit windows and a landscaped front walk" },
-  { src: heroPoolHealdsburg, alt: "Modern Healdsburg home with a long lap pool and glass walls" },
-  { src: heroLivingHealdsburg, alt: "Bright Healdsburg living room with floor-to-ceiling windows" },
+  { src: heroPoolOaks, alt: "Two-story home with a pool and brick patio under mature oaks" },
+  { src: heroGreatRoom, alt: "Great room with a stone fireplace and a wood-plank ceiling" },
+  { src: heroKitchenIsland, alt: "Kitchen with a navy island and a fiddle-leaf fig by the fireplace" },
 ];
 
 export const introPhotos = {
