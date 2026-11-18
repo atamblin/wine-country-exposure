@@ -1,12 +1,12 @@
 import { addons, packages, type AddonId } from "@/lib/pricing";
-import { servicePhotos, wallColumns, introPhotos, serviceAreaPhoto, type Photo } from "@/lib/photos";
+import { servicePhotos, wallColumns, introPhotos, morePhotos, serviceAreaPhoto, type Photo } from "@/lib/photos";
 
 // Content for /services and /services/[slug]. Prices are never typed here: each page lists the
 // Aryeo products it sells (from pricing.ts), so a price change in pricing.ts updates every page.
 
-const wall = wallColumns.flat();
+const library = [...wallColumns.flat(), ...Object.values(introPhotos), ...morePhotos];
 const photo = (alt: string) => {
-  const found = wall.find((p) => p.alt === alt) ?? Object.values(introPhotos).find((p) => p.alt === alt);
+  const found = library.find((p) => p.alt === alt);
   if (!found) throw new Error(`No photo with alt "${alt}"`);
   return found;
 };
