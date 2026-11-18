@@ -30,10 +30,10 @@ export function Hero() {
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(20,43,59,0.55)_0%,rgba(20,43,59,0.3)_70%),linear-gradient(180deg,rgba(20,43,59,0.45)_0%,rgba(20,43,59,0.2)_45%,rgba(20,43,59,0.7)_100%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(20,43,59,0.68)_0%,rgba(20,43,59,0.36)_70%),linear-gradient(180deg,rgba(20,43,59,0.45)_0%,rgba(20,43,59,0.2)_45%,rgba(20,43,59,0.7)_100%)]"
       />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-5 py-24 text-center sm:px-8">
+      <div className="relative z-10 mx-auto max-w-4xl px-5 py-24 text-center [text-shadow:0_1px_14px_rgba(10,22,30,0.55)] sm:px-8">
         <p
           data-reveal
           data-hero-fade
