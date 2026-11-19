@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { areas } from "@/lib/areas";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
@@ -7,7 +8,9 @@ const pages: { path: string; priority: number; changeFrequency: "weekly" | "mont
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/services", priority: 0.9, changeFrequency: "monthly" },
   ...services.map((s) => ({ path: `/services/${s.slug}`, priority: 0.8, changeFrequency: "monthly" as const })),
+  ...areas.map((a) => ({ path: `/areas/${a.slug}`, priority: 0.8, changeFrequency: "monthly" as const })),
   { path: "/quote", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/faq", priority: 0.6, changeFrequency: "monthly" },
   { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
   { path: "/terms", priority: 0.2, changeFrequency: "yearly" },
 ];

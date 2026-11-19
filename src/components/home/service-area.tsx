@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { serviceAreaPhoto as aerial } from "@/lib/photos";
+import Link from "next/link";
+import { townHref } from "@/lib/areas";
 import { site } from "@/lib/site";
 
 export function ServiceArea() {
@@ -36,9 +38,17 @@ export function ServiceArea() {
                 Core area
               </h3>
               <ul className="mt-4 space-y-2 text-slate">
-                {site.coreTowns.map((town) => (
-                  <li key={town}>{town}</li>
-                ))}
+                {site.coreTowns.map((town) =>
+                  townHref(town).startsWith("/areas/") ? (
+                    <li key={town}>
+                      <Link href={townHref(town)} className="underline decoration-lime decoration-2 underline-offset-4 hover:text-midnight">
+                        {town}
+                      </Link>
+                    </li>
+                  ) : (
+                    <li key={town}>{town}</li>
+                  ),
+                )}
               </ul>
             </div>
             <div>
