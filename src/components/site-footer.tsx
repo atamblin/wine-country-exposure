@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { townHref } from "@/lib/areas";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
 // Footer tags, in the spirit of a blog tag cloud. Services link to their pages; towns point at the
-// homepage service-area section until /areas/[city] pages exist.
+// town's local page when it has one, otherwise the homepage service-area section.
 const tags: { label: string; href: string }[] = [
   ...services.map((s) => ({ label: s.shortName, href: `/services/${s.slug}` })),
   { label: "AB 723", href: "/#ab-723" },
   { label: "Sonoma County", href: "/#service-area" },
-  ...[...site.coreTowns, ...site.extendedTowns].map((town) => ({ label: town, href: "/#service-area" })),
+  ...[...site.coreTowns, ...site.extendedTowns].map((town) => ({ label: town, href: townHref(town) })),
 ];
 
 function InstagramIcon() {
@@ -89,6 +90,11 @@ export function SiteFooter() {
             <li>
               <Link className="hover:text-lime" href="/quote">
                 Get a quote
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-lime" href="/faq">
+                FAQ
               </Link>
             </li>
             <li>

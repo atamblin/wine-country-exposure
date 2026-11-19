@@ -1,3 +1,4 @@
+import { areas } from "@/lib/areas";
 import { money, packageStartingPrices, services, startingPrice } from "@/lib/services";
 import { site } from "@/lib/site";
 
@@ -40,6 +41,8 @@ export function GET() {
     "## More",
     "",
     `- [All services](${base}/services)`,
+    `- [FAQ](${base}/faq)`,
+    ...areas.map((a) => `- [Real estate photography in ${a.town}](${base}/areas/${a.slug})`),
     `- [Terms of Service](${base}/terms)`,
     `- [Privacy Policy](${base}/privacy)`,
     "",
