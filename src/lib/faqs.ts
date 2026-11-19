@@ -77,7 +77,7 @@ export const faqGroups: FaqGroup[] = [
     faqs: [
       {
         q: "How fast are photos delivered?",
-        a: "Photos, video, and 3D tours are delivered within 24 hours. Floor plans arrive by the next business day.",
+        a: "Photos, video, 3D tours, and floor plans are all delivered by the next business day.",
       },
       {
         q: "How are files delivered?",

@@ -43,7 +43,7 @@ export const areas: Area[] = [
     headline: ["Real estate photography in", "Santa Rosa"],
     intro: [
       "Santa Rosa is home base for us, so there's never a travel fee here. We shoot everything from Craftsman bungalows near McDonald Avenue to view homes in Fountaingrove and single-level homes in Oakmont, and we know which side of the street gets the morning light.",
-      "Book online, pay upfront by square footage, and get your photos on a branded property page within 24 hours.",
+      "Book online, pay upfront by square footage, and get your photos on a branded property page by the next business day.",
     ],
     hero: photo("Aerial view of a Santa Rosa home with a tile roof"),
     gallery: [
@@ -88,7 +88,7 @@ export const areas: Area[] = [
       },
       {
         q: "How soon can you shoot?",
-        a: "Most Santa Rosa listings can be booked within a few days, often sooner. Pick an open time when you book online, and photos are delivered within 24 hours.",
+        a: "Most Santa Rosa listings can be booked within a few days, often sooner. Pick an open time when you book online, and photos are delivered by the next business day.",
       },
       {
         q: "Do you shoot Oakmont homes?",

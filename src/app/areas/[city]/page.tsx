@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps<"/areas/[city]">): 
 }
 
 const trustPoints = [
-  "Photos delivered within 24 hours",
+  "Photos delivered by the next business day",
   "FAA Part 107 certified and fully insured",
   "Book and pay online, no account needed",
 ];
