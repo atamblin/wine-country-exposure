@@ -1,4 +1,4 @@
-import { introPhotos, morePhotos, servicePhotos, wallColumns, type Photo } from "@/lib/photos";
+import { areaPhotos, introPhotos, morePhotos, servicePhotos, wallColumns, type Photo } from "@/lib/photos";
 import type { ServiceFaq } from "@/lib/services";
 
 // Content for /areas/[city]. Add a town by adding an entry here; the page, sitemap, footer link,
@@ -45,7 +45,7 @@ export const areas: Area[] = [
       "Santa Rosa is home base for us, so there's never a travel fee here. We shoot everything from Craftsman bungalows near McDonald Avenue to view homes in Fountaingrove and single-level homes in Oakmont, and we know which side of the street gets the morning light.",
       "Book online, pay upfront by square footage, and get your photos on a branded property page by the next business day.",
     ],
-    hero: photo("Aerial view of a Santa Rosa home with a tile roof"),
+    hero: areaPhotos.santaRosa,
     gallery: [
       photo("Santa Rosa ranch home with a red door and a flowering maple"),
       photo("White Santa Rosa kitchen with a large island"),

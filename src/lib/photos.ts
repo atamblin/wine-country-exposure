@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import areaSantaRosaAerial from "@/assets/photos/area-santa-rosa-aerial.jpg";
 import ab723StagedLivingRoom from "@/assets/photos/ab723-staged-living-room.jpg";
 import heroGreatRoom from "@/assets/photos/hero-great-room.jpg";
 import heroKitchenIsland from "@/assets/photos/hero-kitchen-island.jpg";
@@ -114,3 +115,11 @@ export const servicePhotos = {
 
 // The AB 723 note on the homepage shows a staged room.
 export const ab723Photo: Photo = { src: ab723StagedLivingRoom, alt: "Furnished living room" };
+
+// Hero photos for /areas/[city] pages (source files: Dropbox "City Photos/<Town>").
+export const areaPhotos = {
+  santaRosa: {
+    src: areaSantaRosaAerial,
+    alt: "Aerial view of a Santa Rosa hillside neighborhood with newer homes and the Mayacamas foothills beyond",
+  },
+} satisfies Record<string, Photo>;
