@@ -76,9 +76,9 @@ export function Services() {
               ) : (
                 <FloorPlanArt />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-midnight/85 via-midnight/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-midnight/90 via-midnight/45 via-55% to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-5">
-                <h3 className="text-xl leading-tight font-semibold text-white">{service.name}</h3>
+                <h3 className="text-xl leading-tight font-semibold text-white [text-shadow:0_1px_10px_rgba(10,22,30,0.5)]">{service.name}</h3>
                 <p className="mt-1.5 text-xs font-semibold tracking-[0.18em] text-lime uppercase">
                   {service.price}
                 </p>

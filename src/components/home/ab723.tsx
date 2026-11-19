@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { servicePhotos } from "@/lib/photos";
+import { ab723Photo } from "@/lib/photos";
 
 export function Ab723() {
   return (
@@ -20,8 +20,8 @@ export function Ab723() {
         </div>
         <div className="relative min-h-64">
           <Image
-            src={servicePhotos.staging.src}
-            alt={servicePhotos.staging.alt}
+            src={ab723Photo.src}
+            alt={ab723Photo.alt}
             fill
             sizes="(min-width: 768px) 45vw, 100vw"
             placeholder="blur"

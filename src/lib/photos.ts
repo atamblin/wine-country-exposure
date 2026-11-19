@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import ab723StagedLivingRoom from "@/assets/photos/ab723-staged-living-room.jpg";
 import heroGreatRoom from "@/assets/photos/hero-great-room.jpg";
 import heroKitchenIsland from "@/assets/photos/hero-kitchen-island.jpg";
 import heroPoolOaks from "@/assets/photos/hero-pool-oaks.jpg";
@@ -9,10 +10,7 @@ import introKitchenSantaRosa from "@/assets/photos/intro-kitchen-santa-rosa.jpg"
 import introPoolHealdsburg from "@/assets/photos/intro-pool-healdsburg.jpg";
 import introVictorianDusk from "@/assets/photos/intro-victorian-dusk.jpg";
 import introWhiteLivingRoom from "@/assets/photos/intro-white-living-room.jpg";
-import serviceAerial from "@/assets/photos/service-aerial.jpg";
 import serviceMatterport from "@/assets/photos/service-matterport.jpg";
-import servicePhotoVideo from "@/assets/photos/service-photo-video.jpg";
-import servicePhotography from "@/assets/photos/service-photography.jpg";
 import serviceStaging from "@/assets/photos/service-staging.jpg";
 import serviceTwilight from "@/assets/photos/service-twilight.jpg";
 import serviceZillow from "@/assets/photos/service-zillow.jpg";
@@ -44,14 +42,14 @@ export type Photo = { src: StaticImageData; alt: string };
 export const heroPhotos: Photo[] = [
   { src: heroTwilightFrontYard, alt: "Single-story ranch home at twilight with lit windows and a landscaped front walk" },
   { src: heroPoolOaks, alt: "Two-story home with a pool and brick patio under mature oaks" },
-  { src: heroGreatRoom, alt: "Great room with a stone fireplace and a wood-plank ceiling" },
+  { src: introPoolHealdsburg, alt: "Modern Healdsburg home with a long lap pool and glass walls" },
   { src: heroKitchenIsland, alt: "Kitchen with a navy island and a fiddle-leaf fig by the fireplace" },
 ];
 
 export const introPhotos = {
   main: { src: introAerialVineyardEstate, alt: "Aerial view of a wine country estate with a pool, surrounded by oaks and vineyards" },
   top: { src: introWhiteLivingRoom, alt: "White living room with a fireplace and French doors to a porch" },
-  bottom: { src: introPoolHealdsburg, alt: "Modern Healdsburg home with a long lap pool and glass walls" },
+  bottom: { src: wallBathroom, alt: "Spa bathroom with a freestanding tub" },
 } satisfies Record<string, Photo>;
 
 const p = (src: StaticImageData, alt: string): Photo => ({ src, alt });
@@ -65,11 +63,12 @@ const backyard = p(wallBackyard, "Backyard lawn with a patio dining set");
 const staircase = p(wallStaircase, "Entry with a black-and-white checkered floor and staircase");
 const sonomaKitchen = p(wallSonomaKitchen, "Sonoma kitchen with a dining table and garden views");
 const bedroom = p(wallBedroom, "Primary bedroom with a bay window");
+const aerialSantaRosa = p(wallAerialSantaRosa, "Aerial view of a Santa Rosa home with a tile roof");
 
 // Columns 1-2 show on phones, 1-3 on tablets, all five on desktop, so the newest work goes first.
 export const wallColumns: Photo[][] = [
   [
-    p(wallAerialValley, "Aerial view over oak woodland and vineyards in Sonoma County"),
+    aerialSantaRosa,
     p(wallTealKitchen, "Kitchen with teal cabinets, a butcher-block island, and a pro range"),
     p(wallOpenLivingRoom, "Open living room with a white sectional and sliding doors to the yard"),
   ],
@@ -93,10 +92,8 @@ export const morePhotos: Photo[] = [
   p(introKitchenSantaRosa, "White Santa Rosa kitchen with a large island"),
   p(introVictorianDusk, "Blue Victorian home in Sonoma at dusk"),
   p(wallDining, "Dining room with a chandelier and garden windows"),
-  p(wallBathroom, "Spa bathroom with a freestanding tub"),
   p(wallKitchenIsland, "Kitchen with wood cabinets and a breakfast bar"),
   p(wallGreatRoom, "Great room with vaulted beams and a wall of windows"),
-  p(wallAerialSantaRosa, "Aerial view of a Santa Rosa home with a tile roof"),
   p(wallRohnertPark, "Rohnert Park home exterior with a two-car garage"),
 ];
 
@@ -106,11 +103,14 @@ export const serviceAreaPhoto: Photo = {
 };
 
 export const servicePhotos = {
-  photography: { src: servicePhotography, alt: "Living room photographed for a listing" },
-  photoVideo: { src: servicePhotoVideo, alt: "Covered patio overlooking Sonoma hills" },
-  aerial: { src: serviceAerial, alt: "Aerial view of a neighborhood" },
+  photography: { src: heroGreatRoom, alt: "Great room with a stone fireplace, a wood-plank ceiling, and a teal kitchen" },
+  photoVideo: { src: wallGreatRoom, alt: "Great room with vaulted beams and a wall of windows" },
+  aerial: { src: wallAerialValley, alt: "Aerial view over oak woodland and vineyards in Sonoma County" },
   twilight: { src: serviceTwilight, alt: "Rohnert Park home at twilight" },
   matterport: { src: serviceMatterport, alt: "Open kitchen with an island" },
   zillow: { src: serviceZillow, alt: "Kitchen and dining area" },
-  staging: { src: serviceStaging, alt: "Furnished living room" },
+  staging: { src: serviceStaging, alt: "Before and after: an empty great room and the same room virtually staged" },
 } satisfies Record<string, Photo>;
+
+// The AB 723 note on the homepage shows a staged room.
+export const ab723Photo: Photo = { src: ab723StagedLivingRoom, alt: "Furnished living room" };
