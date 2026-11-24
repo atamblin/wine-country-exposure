@@ -1,5 +1,7 @@
 import type { StaticImageData } from "next/image";
 import areaSantaRosaAerial from "@/assets/photos/area-santa-rosa-aerial.jpg";
+import areaSantaRosaDrone from "@/assets/photos/area-santa-rosa-drone.jpg";
+import areaSantaRosaHillside from "@/assets/photos/area-santa-rosa-hillside.jpg";
 import ab723StagedLivingRoom from "@/assets/photos/ab723-staged-living-room.jpg";
 import heroGreatRoom from "@/assets/photos/hero-great-room.jpg";
 import heroKitchenIsland from "@/assets/photos/hero-kitchen-island.jpg";
@@ -121,5 +123,13 @@ export const areaPhotos = {
   santaRosa: {
     src: areaSantaRosaAerial,
     alt: "Aerial view of a Santa Rosa hillside neighborhood with newer homes and the Mayacamas foothills beyond",
+  },
+  santaRosaDrone: {
+    src: areaSantaRosaDrone,
+    alt: "Drone view over central Santa Rosa and Highway 101 toward the Mayacamas foothills",
+  },
+  santaRosaHillside: {
+    src: areaSantaRosaHillside,
+    alt: "Aerial view of a new Santa Rosa hillside home with green hills and a winding road",
   },
 } satisfies Record<string, Photo>;

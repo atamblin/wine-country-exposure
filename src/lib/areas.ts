@@ -47,9 +47,9 @@ export const areas: Area[] = [
     ],
     hero: areaPhotos.santaRosa,
     gallery: [
-      photo("Santa Rosa ranch home with a red door and a flowering maple"),
+      areaPhotos.santaRosaHillside,
       photo("White Santa Rosa kitchen with a large island"),
-      photo("Oakmont home at twilight among autumn trees"),
+      areaPhotos.santaRosaDrone,
     ],
     neighborhoods: [
       { name: "Fountaingrove", note: "Hillside homes with long views, many rebuilt since 2017." },
